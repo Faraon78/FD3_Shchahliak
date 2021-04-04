@@ -1,0 +1,14 @@
+﻿.Table
+{
+  border: double gray 3px;
+  border-collapse: collapse;
+}
+td{
+  
+  border-width: 2px;
+  border-style: solid;
+  width: 150px;
+  text-align: center;
+  min-height: 70px;
+}
+
