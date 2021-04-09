@@ -25,12 +25,14 @@
     return React.DOM.div( {className:'ProductTable'}, 
       React.DOM.h1( {className:'Header'}, this.props.shop), 
       React.DOM.table({className:'Table'},
-        React.DOM.tr({className:'TableHead'}, 
-          React.DOM.th({className:'NameProd'}, this.props.tableHead.nameProd),
-          React.DOM.th({className:'Cost'}, this.props.tableHead.cost),
-          React.DOM.th({className:'Count'}, this.props.tableHead.count),
-          React.DOM.th({className:'Photo'}, this.props.tableHead.photo),
-        ), 
+        React.DOM.tbody({className:'TableHead'}, 
+          React.DOM.tr(null,
+            React.DOM.th({className:'NameProd'}, this.props.tableHead.nameProd),
+            React.DOM.th({className:'Cost'}, this.props.tableHead.cost),
+            React.DOM.th({className:'Count'}, this.props.tableHead.count),
+            React.DOM.th({className:'Photo'}, this.props.tableHead.photo),
+          ) 
+        ),
         React.DOM.tbody({className:'TableRow'}, productsCode ),
       
       )
