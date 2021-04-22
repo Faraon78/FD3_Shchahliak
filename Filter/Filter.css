@@ -1,1 +1,10 @@
-﻿
+﻿.FilterWord{
+    width: 250px;
+    margin-top: 10px;
+};
+.FilterBlock{
+    height: 80px;
+} 
+input{
+    margin-left: 5px;
+}   
