@@ -25,7 +25,7 @@
   
   render: function() {
       return 
-          React.DOM.tr({key:item.code,className:'Product'},// , onClick:this.marker
+          React.DOM.tr(null, {key:item.code,className:'Product'},// , onClick:this.marker
               React.DOM.td({className:'NameProd'},item.nameProd),
               React.DOM.td(({className:'Cost'},item.cost),
               React.DOM.td({className:'Count'},item.count),
