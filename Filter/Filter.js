@@ -62,7 +62,7 @@
         React.DOM.input({type:'button',className:'Button', value:'сброс', onClick:this.clear} ),      
         ),
         React.DOM.div( null, 
-        React.DOM.select({className:'FilterWord',size:7}, screenrez),
+        React.DOM.select({className:'FilterWord',size:7}, screenrez),//
         ),  
     )
     }
