@@ -1,20 +1,27 @@
 ﻿var ShopTable = React.createClass({
 
   displayName: 'ShopTable',
-
-  
+   
+  getInitialState: function() {
+    return {
+      selectedItemCode:0,
+    }
+  },
+  itemMarkered: function(code){
+    console.log('показатель selectedItemCode до изменения равен= ' + this.state.selectedItemCode +' функция itemMarkered запущена');
+    this.setState({selectedItemCode:code}, console.log('выбрана строка: ' + this.state.selectedItemCode));
+    
+  },
   render: function() {
     var productsCode=[];
-    
+    console.log('показатель selectedItemCode равен=' + this.state.selectedItemCode);
     for ( var a=0; a<this.props.products.length; a++ ) {
       var product=this.props.products[a];
       var productCode=
-        React.createElement(ProductRow, {item:product, key:product.code});       
-        console.log(productCode);  
+        React.createElement(ProductRow, {products:this.props.products[a], key:this.props.products[a].code, cbMarker:this.itemMarkered, marker:this.state.selectedItemCode});       
       productsCode.push(productCode);
     }
-      console.log(productsCode);
-
+      
     return React.DOM.div( {className:'ShopTable'}, 
       React.DOM.h1( {className:'Header'}, this.props.shop), 
       React.DOM.table({className:'Table'},
