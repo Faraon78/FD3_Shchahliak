@@ -1,26 +1,45 @@
 ﻿var ShopTable = React.createClass({
 
   displayName: 'ShopTable',
+  propTypes: {
+    selectedItemCode: React.PropTypes.number,
+    
+  },
    
   getInitialState: function() {
     return {
-      selectedItemCode:0,
+      selectedItemCode:null,
+      items:this.props.products,
     }
   },
   itemMarkered: function(code){
-    console.log('показатель selectedItemCode до изменения равен= ' + this.state.selectedItemCode +' функция itemMarkered запущена');
-    this.setState({selectedItemCode:code}, console.log('выбрана строка: ' + this.state.selectedItemCode));
+    this.setState({selectedItemCode:code});
+  },  
+
+  itemDelete: function(code){
+    var filteredItems=this.state.items.filter(el => el.code!=code);
+    this.setState({items:filteredItems});
     
   },
-  render: function() {
+  render: function(){
     var productsCode=[];
-    console.log('показатель selectedItemCode равен=' + this.state.selectedItemCode);
-    for ( var a=0; a<this.props.products.length; a++ ) {
-      var product=this.props.products[a];
-      var productCode=
-        React.createElement(ProductRow, {products:this.props.products[a], key:this.props.products[a].code, cbMarker:this.itemMarkered, marker:this.state.selectedItemCode});       
-      productsCode.push(productCode);
-    }
+    var productCode;
+                
+    for ( var a=0; a<this.state.items.length; a++ ){ 
+      //var product=this.state.items[a];
+        if (this.state.items[a].code==this.state.selectedItemCode){ 
+            productCode=React.createElement(ProductRow, 
+            {products:this.state.items[a], key:this.state.items[a].code, cbMarker:this.itemMarkered, cbDelete:this.itemDelete,
+            color:'orange'}), 
+            productsCode.push(productCode);
+            } 
+         
+          else {productCode=React.createElement(ProductRow, {products:this.state.items[a], key:this.state.items[a].code, 
+              cbMarker:this.itemMarkered, cbDelete:this.itemDelete});  
+          productsCode.push(productCode);
+          }
+    }    
+    
       
     return React.DOM.div( {className:'ShopTable'}, 
       React.DOM.h1( {className:'Header'}, this.props.shop), 
