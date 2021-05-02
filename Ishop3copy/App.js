@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import ShopTable from './components/IShop3';
 
     var shopName='Оптовый магазин канцтоваров';
-    var productHead={nameProd:'Наименование товаров',cost:'Отпускная цена за 1 ед.', photo: 'Изображение', count: 'Остаток на складе', control: 'Удалить' };   
+    var productHead=require('./tableHead.json');  
     var productArr=require('./products.json');
 
 ReactDOM.render(
