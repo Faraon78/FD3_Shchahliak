@@ -15,5 +15,5 @@ ReactDOM.render(
     shop={shopName}
     tableHead={productHead} 
   />, 
-document.getElementById('container') 
+document.getElementById('container' ) 
 );

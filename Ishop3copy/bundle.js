@@ -21372,9 +21372,9 @@ var ShopTable = function (_React$Component) {
             productsCode
           )
         ),
-        _react2.default.createElement('input', { type: 'button', value: '\u041D\u043E\u0432\u044B\u0439 \u0442\u043E\u0432\u0430\u0440', disabled: this.state.disRow, onClick: this.newProduct }),
+        _react2.default.createElement('input', { type: 'button', className: 'newBut', value: '\u041D\u043E\u0432\u044B\u0439 \u0442\u043E\u0432\u0430\u0440', disabled: this.state.disRow, onClick: this.newProduct }),
         this.state.cardMode == 1 && _react2.default.createElement(_CardView2.default, { className: 'Card', item: itemEditProps }),
-        this.state.cardMode == 2 && _react2.default.createElement(_CardEdit2.default, { className: 'Card', item: itemEditProps, cbSave: this.itemSave, cbCancel: this.cancel, cbDisabled: this.disabledRow,
+        this.state.cardMode == 2 && _react2.default.createElement(_CardEdit2.default, { className: 'Card', item: itemEditProps, key: this.state.selectedItemId, cbSave: this.itemSave, cbCancel: this.cancel, cbDisabled: this.disabledRow,
           nameCard: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u0430' }),
         this.state.cardMode == 3 && _react2.default.createElement(_CardNew2.default, { className: 'Card', cbAddNew: this.itemSaveNew, cbCancel: this.cancel, cbDisabled: this.disabledRow,
           nameCard: '\u0412\u0432\u0435\u0441\u0442\u0438 \u043D\u043E\u0432\u044B\u0439 \u0442\u043E\u0432\u0430\u0440', items: this.state.items })
@@ -21734,7 +21734,7 @@ var CardEdit = function (_React$Component) {
   _createClass(CardEdit, [{
     key: 'render',
     value: function render() {
-      //console.log(this.state.item.id);
+      console.log(this.state.item.id);
       return _react2.default.createElement(
         'div',
         null,
@@ -21919,9 +21919,11 @@ var CardNew = function (_React$Component) {
     }, _this.new = function () {
       _this.validation();
       console.log(_this.state.disButtonSave);
-      _this.cbNew();
+      if (!_this.state.disButtonSave && !_this.state.errorId) {
+        _this.cbNew();
+      }
     }, _this.cbNew = function () {
-      if (!_this.state.disButtonSave) {
+      if (!_this.state.disButtonSave && !_this.state.errorId && _this.state.itemId) {
         _this.props.cbAddNew({
           id: _this.state.itemId,
           nameProd: _this.state.itemName,
@@ -21939,7 +21941,7 @@ var CardNew = function (_React$Component) {
       var v4 = /\w{1,}.\w{1,}/.test(_this.state.itemUrl);
       console.log(v0, v1, v2, v3, v4);
       if (!v0) {
-        _this.setState({ errorId: 'Введите уникальный код товара' });
+        _this.setState({ errorId: 'Введите уникальный код товара' }, console.log('сработал if'));
       } else {
         _this.setState({ errorId: null });
 
@@ -21952,7 +21954,7 @@ var CardNew = function (_React$Component) {
         }
       }
       if (!v1) {
-        _this.setState({ errorName: 'Введите название товара (не менее 3 символов)' });
+        _this.setState({ errorName: 'Введите название товара (не менее 3 символов)' }, console.log('сработал if'));
       } else {
         _this.setState({ errorName: null });
       }
@@ -21976,7 +21978,7 @@ var CardNew = function (_React$Component) {
       } else {
         _this.setState({ disButtonSave: true }, _this.cbDisabled(true));
       };
-      console.log(_this.state.disButtonSave);
+      console.log(_this.state.disButtonSave, _this.state.errorName, _this.state.errorCount);
     }, _this.cbDisabled = function (Boolean) {
       _this.props.cbDisabled(Boolean);
     }, _this.cbCancel = function () {
