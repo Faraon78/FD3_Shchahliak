@@ -9,7 +9,7 @@ class ProductRow extends React.Component{
     cost: PropTypes.number,
     count: PropTypes.number,
     rezult: PropTypes.array,
-    id:PropTypes.number,
+    
   }
     
   itemclicked = (EO) => {   
@@ -19,7 +19,8 @@ class ProductRow extends React.Component{
   }
  
   deleteProduct = (EO) => {
-    console.log(this.props.id);
+    
+    EO.stopPropagation();
     let custom=confirm('Вы действительно хотите удалить этот товар из списка?');
     if (custom==true){
       this.props.cbDelete(this.props.id);
@@ -27,13 +28,12 @@ class ProductRow extends React.Component{
     }
   }
   editProduct = (EO) => {
+    EO.stopPropagation();
     this.props.cbEdit(this.props.id);
-    console.log(this.props.id)    
   }
   
   render() {
-    console.log(this.props.id)
-    
+        
     return (
       <tr key={this.props.id} className='Product' onClick={this.itemclicked} style={{backgroundColor:this.props.color}} id={this.props.id}>
         <td className ='NameProd'> {this.props.products.nameProd} </td>
@@ -43,7 +43,7 @@ class ProductRow extends React.Component{
           <img src={this.props.products.photo}/>
         </td>
         <td className = 'Edit'>
-          <input type= 'button' value= 'Редактировать' name={this.props.products.id} onClick={this.editProduct}/> 
+          <input type= 'button' value= 'Редактировать' id={this.props.products.id} onClick={this.editProduct}/> 
         </td>
         <td className = 'Control'>
           <input type= 'button' value= 'Удалить' name={this.props.products.id} onClick={this.deleteProduct}/> 

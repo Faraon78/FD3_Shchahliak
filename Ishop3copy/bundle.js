@@ -258,6 +258,21 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(17);
+} else {
+  module.exports = __webpack_require__(18);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
@@ -294,21 +309,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(17);
-} else {
-  module.exports = __webpack_require__(18);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -372,6 +372,41 @@ module.exports = invariant;
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(31)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -468,41 +503,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(31)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -541,7 +541,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -736,7 +736,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -994,7 +994,7 @@ module.exports = getActiveElement;
 "use strict";
 
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -1009,8 +1009,8 @@ var _IShop2 = _interopRequireDefault(_IShop);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var shopName = 'Оптовый магазин канцтоваров';
-var productHead = __webpack_require__(38);
-var productArr = __webpack_require__(39);
+var productHead = __webpack_require__(40);
+var productArr = __webpack_require__(41);
 
 _reactDom2.default.render(_react2.default.createElement(_IShop2.default, {
   products: productArr,
@@ -1032,7 +1032,7 @@ _reactDom2.default.render(_react2.default.createElement(_IShop2.default, {
  This source code is licensed under the MIT license found in the
  LICENSE file in the root directory of this source tree.
 */
-var f=__webpack_require__(4),p=__webpack_require__(6);__webpack_require__(3);var r=__webpack_require__(1);
+var f=__webpack_require__(5),p=__webpack_require__(6);__webpack_require__(3);var r=__webpack_require__(2);
 function t(a){for(var b=arguments.length-1,d="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,e=0;e<b;e++)d+="\x26args[]\x3d"+encodeURIComponent(arguments[e+1]);b=Error(d+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var u={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function v(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}v.prototype.isReactComponent={};v.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?t("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};v.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function w(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}function x(){}x.prototype=v.prototype;var y=w.prototype=new x;y.constructor=w;f(y,v.prototype);y.isPureReactComponent=!0;function z(a,b,d){this.props=a;this.context=b;this.refs=p;this.updater=d||u}var A=z.prototype=new x;A.constructor=z;f(A,v.prototype);A.unstable_isAsyncReactComponent=!0;A.render=function(){return this.props.children};
@@ -1069,11 +1069,11 @@ if (process.env.NODE_ENV !== "production") {
 
 'use strict';
 
-var objectAssign$1 = __webpack_require__(4);
+var objectAssign$1 = __webpack_require__(5);
 var require$$0 = __webpack_require__(7);
 var emptyObject = __webpack_require__(6);
 var invariant = __webpack_require__(3);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(8);
 
 /**
@@ -2815,7 +2815,7 @@ if (process.env.NODE_ENV === 'production') {
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2);__webpack_require__(3);var l=__webpack_require__(10),n=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(1),da=__webpack_require__(6),ea=__webpack_require__(12),fa=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15);
+var aa=__webpack_require__(1);__webpack_require__(3);var l=__webpack_require__(10),n=__webpack_require__(5),ba=__webpack_require__(11),ca=__webpack_require__(2),da=__webpack_require__(6),ea=__webpack_require__(12),fa=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -3140,17 +3140,17 @@ if (process.env.NODE_ENV !== "production") {
 
 'use strict';
 
-var react = __webpack_require__(2);
+var react = __webpack_require__(1);
 var invariant = __webpack_require__(3);
 var ExecutionEnvironment = __webpack_require__(10);
-var _assign = __webpack_require__(4);
+var _assign = __webpack_require__(5);
 var EventListener = __webpack_require__(11);
 var require$$0 = __webpack_require__(7);
 var hyphenateStyleName = __webpack_require__(24);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var camelizeStyleName = __webpack_require__(26);
 var performanceNow = __webpack_require__(28);
-var propTypes = __webpack_require__(5);
+var propTypes = __webpack_require__(4);
 var emptyObject = __webpack_require__(6);
 var checkPropTypes = __webpack_require__(8);
 var shallowEqual = __webpack_require__(12);
@@ -20581,10 +20581,10 @@ module.exports = performance || {};
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(3);
 var warning = __webpack_require__(7);
-var assign = __webpack_require__(4);
+var assign = __webpack_require__(5);
 
 var ReactPropTypesSecret = __webpack_require__(9);
 var checkPropTypes = __webpack_require__(8);
@@ -21131,7 +21131,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(3);
 var ReactPropTypesSecret = __webpack_require__(9);
 
@@ -21195,11 +21195,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -21216,6 +21216,10 @@ var _CardView2 = _interopRequireDefault(_CardView);
 var _CardEdit = __webpack_require__(37);
 
 var _CardEdit2 = _interopRequireDefault(_CardEdit);
+
+var _CardNew = __webpack_require__(39);
+
+var _CardNew2 = _interopRequireDefault(_CardNew);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21242,56 +21246,62 @@ var ShopTable = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ShopTable.__proto__ || Object.getPrototypeOf(ShopTable)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       selectedItemId: null,
       items: _this.props.products,
-      cardMode: 0 //0 - нет карточки продукта, 1 - режим просмотра, 2 режим редактирования
+      cardMode: 0, //0 - нет карточки продукта, 1 - режим просмотра, 2 режим редактирования, 3 режим ввода нового товара
+      disRow: false // показатель блокировки изменения строк при редактировании одной из них
     }, _this.itemMarkered = function (id) {
-      console.log('функция itemMarkered запущена', id);
-      _this.setState({ selectedItemId: id, cardMode: 1 }, console.log(_this.state.selectedItemId, _this.state.cardMode));
+      //console.log('функция itemMarkered запущена', id)
+      _this.setState({ selectedItemId: id, cardMode: 1 }, console.log('cardMode ' + _this.state.cardMode));
     }, _this.itemDelete = function (id) {
+      //console.log('функция itemDelete запущена');
       var filteredItems = _this.state.items.filter(function (el) {
         return el.id != id;
       });
-      _this.setState({ items: filteredItems });
+      _this.setState({ items: filteredItems }, console.log('cardMode ' + _this.state.cardMode));
+    }, _this.itemEdit = function (id) {
+      _this.setState({ cardMode: 2, selectedItemId: id });
+    }, _this.itemSave = function (newItem) {
+      var item = _this.state.items.map(function (el) {
+        return el.id == newItem.id ? newItem : el;
+      });
+      console.log(item);
+      _this.setState({ items: item, cardMode: 0 });
+    }, _this.itemSaveNew = function (addItem) {
+      console.log(addItem);
+      //let addItems=this.state.items.push(addItem);
+      _this.state.items.push(addItem);
+      //console.log(addItems);
+      _this.setState({ items: _this.state.items, cardMode: 0 });
+      console.log(_this.state.items);
+    }, _this.cancel = function () {
+      _this.setState({ cardMode: 0, disRow: false });
+    }, _this.disabledRow = function (Boolean) {
+      _this.setState({ disRow: Boolean });
+      console.log(_this.state.disRow);
+    }, _this.newProduct = function () {
+      _this.setState({ cardMode: 3 });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ShopTable, [{
     key: 'render',
-
-
-    //itemEdit = (code) => {
-    //  this.setState({cardMode:2, selectedItemCode:code});
-    // } 
-
     value: function render() {
       var _this2 = this;
 
-      var productsCode = [];
-      var productCode = void 0;
+      var productsCode = this.state.items.map(function (v) {
+        return _react2.default.createElement(_Product2.default, { products: v, key: v.id, id: v.id,
+          color: v.id == _this2.state.selectedItemId && '#f5ab16',
 
-      for (var a = 0; a < this.state.items.length; a++) {
-        if (this.state.items[a].id == this.state.selectedItemId) {
-          {
-            productCode = _react2.default.createElement(_Product2.default, { products: this.state.items[a], key: this.state.items[a].id, id: this.state.items[a].id,
-              cbMarker: this.itemMarkered, cbDelete: this.itemDelete, cbEdit: this.itemEdit, color: '#f5ab16' });
-            productsCode.push(productCode);
-            console.log(this.state.items[a].id);
-          }
-
-          productsCode.push(productCode);
-        } else {
-          productCode = _react2.default.createElement(_Product2.default, { products: this.state.items[a], key: this.state.items[a].id, id: this.state.items[a].id,
-            cbMarker: this.itemMarkered, cbDelete: this.itemDelete, cbEdit: this.itemEdit });
-          productsCode.push(productCode);
-          console.log(this.state.items[a].id, this.state.selectedItemId, this.state.cardMode);
-        }
-      }
-      var itemEditProps = this.state.items.find(function (item) {
-        return item.id = _this2.state.selectedItemId;
+          cbMarker: !_this2.state.disRow && _this2.itemMarkered // коллбэки работают только если не идет редактирование строки
+          , cbDelete: !_this2.state.disRow && _this2.itemDelete,
+          cbEdit: !_this2.state.disRow && _this2.itemEdit
+        });
       });
-      //, {key:this.itemEditProps.code, item:this.itemEditProps}
-      //, {key:this.itemEditProps.code, item:this.itemEditProps}
-      //{ (this.state.cardMode=1) && <div className='Card'>{CardView}</div>}
-      //{ (this.state.cardMode=2) && <div className='Card'>{CardEdit}</div>}
+
+      var itemEditProps = this.state.items.find(function (item) {
+        return item.id == _this2.state.selectedItemId;
+      });
+      //console.log('itemEditProps ' +itemEditProps, 'cardMode '+ this.state.cardMode)
+
 
       return _react2.default.createElement(
         'div',
@@ -21361,7 +21371,13 @@ var ShopTable = function (_React$Component) {
             { className: 'TableRow' },
             productsCode
           )
-        )
+        ),
+        _react2.default.createElement('input', { type: 'button', value: '\u041D\u043E\u0432\u044B\u0439 \u0442\u043E\u0432\u0430\u0440', disabled: this.state.disRow, onClick: this.newProduct }),
+        this.state.cardMode == 1 && _react2.default.createElement(_CardView2.default, { className: 'Card', item: itemEditProps }),
+        this.state.cardMode == 2 && _react2.default.createElement(_CardEdit2.default, { className: 'Card', item: itemEditProps, cbSave: this.itemSave, cbCancel: this.cancel, cbDisabled: this.disabledRow,
+          nameCard: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u0430' }),
+        this.state.cardMode == 3 && _react2.default.createElement(_CardNew2.default, { className: 'Card', cbAddNew: this.itemSaveNew, cbCancel: this.cancel, cbDisabled: this.disabledRow,
+          nameCard: '\u0412\u0432\u0435\u0441\u0442\u0438 \u043D\u043E\u0432\u044B\u0439 \u0442\u043E\u0432\u0430\u0440', items: this.state.items })
       );
     }
   }]);
@@ -21370,8 +21386,9 @@ var ShopTable = function (_React$Component) {
 }(_react2.default.Component);
 
 ShopTable.propTypes = {
-  selectedItemId: _propTypes2.default.number
-
+  selectedItemId: _propTypes2.default.number,
+  disRow: _propTypes2.default.bool,
+  items: _propTypes2.default.array
 };
 exports.default = ShopTable;
 
@@ -21394,11 +21411,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -21430,21 +21447,21 @@ var ProductRow = function (_React$Component) {
       console.log('функция itemclicked запущена', _this.props.id);
       _this.props.cbMarker(_this.props.id);
     }, _this.deleteProduct = function (EO) {
-      console.log(_this.props.id);
+
+      EO.stopPropagation();
       var custom = confirm('Вы действительно хотите удалить этот товар из списка?');
       if (custom == true) {
         _this.props.cbDelete(_this.props.id);
       }
     }, _this.editProduct = function (EO) {
+      EO.stopPropagation();
       _this.props.cbEdit(_this.props.id);
-      console.log(_this.props.id);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ProductRow, [{
     key: 'render',
     value: function render() {
-      console.log(this.props.id);
 
       return _react2.default.createElement(
         'tr',
@@ -21478,7 +21495,7 @@ var ProductRow = function (_React$Component) {
         _react2.default.createElement(
           'td',
           { className: 'Edit' },
-          _react2.default.createElement('input', { type: 'button', value: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C', name: this.props.products.id, onClick: this.editProduct })
+          _react2.default.createElement('input', { type: 'button', value: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C', id: this.props.products.id, onClick: this.editProduct })
         ),
         _react2.default.createElement(
           'td',
@@ -21496,8 +21513,8 @@ ProductRow.propTypes = {
   nameProd: _propTypes2.default.string,
   cost: _propTypes2.default.number,
   count: _propTypes2.default.number,
-  rezult: _propTypes2.default.array,
-  id: _propTypes2.default.number
+  rezult: _propTypes2.default.array
+
 };
 exports.default = ProductRow;
 
@@ -21520,11 +21537,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -21591,8 +21608,7 @@ var CardView = function (_React$Component) {
 CardView.propTypes = {
   nameProd: _propTypes2.default.string,
   cost: _propTypes2.default.number,
-  count: _propTypes2.default.number,
-  rezult: _propTypes2.default.array
+  count: _propTypes2.default.number
 };
 exports.default = CardView;
 
@@ -21607,15 +21623,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+__webpack_require__(38);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21624,8 +21644,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import '.CardEdit.css';
 
 var CardEdit = function (_React$Component) {
   _inherits(CardEdit, _React$Component);
@@ -21642,34 +21660,173 @@ var CardEdit = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CardEdit.__proto__ || Object.getPrototypeOf(CardEdit)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      item: {}
+      item: _this.props.item,
+      itemName: _this.props.item.nameProd,
+      itemCost: _this.props.item.cost,
+      itemCount: _this.props.item.count,
+      itemUrl: _this.props.item.photo,
+      errorName: null,
+      errorCost: null,
+      errorCount: null,
+      errorUrl: null,
+      disButtonSave: false
+
+    }, _this.changedName = function (EO) {
+      _this.setState({ itemName: EO.target.value }, console.log(_this.state.itemName));
+      console.log(_this.state.itemName);
+    }, _this.changedCost = function (EO) {
+      _this.setState({ itemCost: EO.target.value }, console.log(_this.state.itemCost));
+      console.log(_this.state.itemCost);
+    }, _this.changedCount = function (EO) {
+      _this.setState({ itemCount: EO.target.value }, console.log(_this.state.itemCount));
+      console.log(_this.state.itemCount);
+    }, _this.changedUrl = function (EO) {
+      _this.setState({ itemUrl: EO.target.value }, console.log(_this.state.itemUrl));
+      console.log(_this.state.itemUrl);
+    }, _this.cbSave = function () {
+      _this.props.cbSave(_extends({}, _this.props.item, {
+        nameProd: _this.state.itemName,
+        cost: _this.state.itemCost,
+        count: _this.state.itemCount,
+        photo: _this.state.itemUrl
+      }));
+    }, _this.validation = function () {
+      var v1 = /\S{3,}/.test(_this.state.itemName);
+      var v2 = /\d{1,}.\d{2}/.test(_this.state.itemCost);
+      var v3 = /\d{1,}/.test(_this.state.itemCount);
+      var v4 = /\w{1,}.\w{1,}/.test(_this.state.itemUrl);
+      console.log(v1, v2, v3, v4);
+
+      if (!v1) {
+        _this.setState({ errorName: 'Введите название товара (не менее 3 символов)' });
+      } else {
+        _this.setState({ errorName: null });
+      }
+      if (!v2) {
+        _this.setState({ errorCost: 'Введите цену товара (число с 2 знаками после точки)' });
+      } else {
+        _this.setState({ errorCost: null });
+      }
+      if (!v3) {
+        _this.setState({ errorCount: 'Введите количество товара' });
+      } else {
+        _this.setState({ errorCount: null });
+      }
+      if (!v4) {
+        _this.setState({ errorUrl: 'Введите url изображения' });
+      } else {
+        _this.setState({ errorUrl: null });
+      }
+      if (v1 && v2 && v3 && v4) {
+        _this.setState({ disButtonSave: false }, _this.cbDisabled(false));
+      } else {
+        _this.setState({ disButtonSave: true }, _this.cbDisabled(true));
+      };
+      console.log(_this.state.disButtonSave);
+    }, _this.cbDisabled = function (Boolean) {
+      _this.props.cbDisabled(Boolean);
+    }, _this.cbCancel = function () {
+
+      _this.props.cbCancel();
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(CardEdit, [{
     key: 'render',
     value: function render() {
-
+      //console.log(this.state.item.id);
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'h3',
           null,
-          this.props.item.nameProd
+          this.props.nameCard
         ),
         _react2.default.createElement(
-          'div',
+          'label',
           null,
-          '\u0426\u0435\u043D\u0430: ',
-          this.props.item.cost
+          _react2.default.createElement(
+            'span',
+            null,
+            'id: '
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            this.state.item.id
+          )
         ),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
-          'div',
+          'label',
           null,
-          '\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E: ',
-          this.props.item.count
-        )
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' \u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemName', defaultValue: this.state.item.nameProd, onChange: this.changedName, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorName
+          )
+        ),
+        ' ',
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' \u0426\u0435\u043D\u0430: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemCost', defaultValue: this.state.item.cost, onChange: this.changedCost, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorCost
+          )
+        ),
+        ' ',
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' \u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemCount', defaultValue: this.state.item.count, onChange: this.changedCount, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorCount
+          )
+        ),
+        ' ',
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' Url: '
+          ),
+          _react2.default.createElement('input', { type: 'url', name: 'itemUrl', defaultValue: this.state.item.photo, onChange: this.changedUrl, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorUrl
+          )
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('input', { type: 'button', value: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', className: 'button', onClick: this.cbSave, disabled: this.state.disButtonSave }),
+        _react2.default.createElement('input', { type: 'button', value: '\u041E\u0442\u043C\u0435\u043D\u0430', className: 'button', onClick: this.cbCancel })
       );
     }
   }]);
@@ -21677,20 +21834,280 @@ var CardEdit = function (_React$Component) {
   return CardEdit;
 }(_react2.default.Component);
 
-CardEdit.propTypes = {};
+CardEdit.propTypes = {
+  nameProd: _propTypes2.default.string,
+  cost: _propTypes2.default.number,
+  count: _propTypes2.default.number
+};
 exports.default = CardEdit;
 
 /***/ }),
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = {"nameProd":"Наименование товаров","cost":"Отпускная цена за 1 ед.","photo":"Изображение","count":"Остаток на складе","edit":"Редактировать","control":"Удалить"}
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(4);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import '.CardNew.css';
+
+var CardNew = function (_React$Component) {
+  _inherits(CardNew, _React$Component);
+
+  function CardNew() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, CardNew);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CardNew.__proto__ || Object.getPrototypeOf(CardNew)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      items: _this.props.items,
+      itemId: '',
+      itemName: '',
+      itemCost: '',
+      itemCount: '',
+      itemUrl: '',
+      errorName: null,
+      errorCost: null,
+      errorCount: null,
+      errorUrl: null,
+      errorId: null,
+      disButtonSave: false
+
+    }, _this.changedId = function (EO) {
+      _this.setState({ itemId: EO.target.value });
+    }, _this.changedName = function (EO) {
+      _this.setState({ itemName: EO.target.value });
+    }, _this.changedCost = function (EO) {
+      _this.setState({ itemCost: EO.target.value });
+    }, _this.changedCount = function (EO) {
+      _this.setState({ itemCount: EO.target.value });
+    }, _this.changedUrl = function (EO) {
+      _this.setState({ itemUrl: EO.target.value });
+    }, _this.new = function () {
+      _this.validation();
+      console.log(_this.state.disButtonSave);
+      _this.cbNew();
+    }, _this.cbNew = function () {
+      if (!_this.state.disButtonSave) {
+        _this.props.cbAddNew({
+          id: _this.state.itemId,
+          nameProd: _this.state.itemName,
+          cost: _this.state.itemCost,
+          count: _this.state.itemCount,
+          photo: _this.state.itemUrl
+        });
+      }
+    }, _this.validation = function () {
+      console.log('Запустилась validation');
+      var v0 = /\S{1,}/.test(_this.state.itemId);
+      var v1 = /\S{3,}/.test(_this.state.itemName);
+      var v2 = /\d{1,}.\d{2}/.test(_this.state.itemCost);
+      var v3 = /\d{1,}/.test(_this.state.itemCount);
+      var v4 = /\w{1,}.\w{1,}/.test(_this.state.itemUrl);
+      console.log(v0, v1, v2, v3, v4);
+      if (!v0) {
+        _this.setState({ errorId: 'Введите уникальный код товара' });
+      } else {
+        _this.setState({ errorId: null });
+
+        if (_this.props.items.some(function (el) {
+          return el.id == _this.state.itemId;
+        })) {
+          _this.setState({ errorId: 'Ваш код не уникальный, введите другой' });
+        } else {
+          _this.setState({ errorId: null });
+        }
+      }
+      if (!v1) {
+        _this.setState({ errorName: 'Введите название товара (не менее 3 символов)' });
+      } else {
+        _this.setState({ errorName: null });
+      }
+      if (!v2) {
+        _this.setState({ errorCost: 'Введите цену товара (число с 2 знаками после точки)' });
+      } else {
+        _this.setState({ errorCost: null });
+      }
+      if (!v3) {
+        _this.setState({ errorCount: 'Введите количество товара' });
+      } else {
+        _this.setState({ errorCount: null });
+      }
+      if (!v4) {
+        _this.setState({ errorUrl: 'Введите url изображения' });
+      } else {
+        _this.setState({ errorUrl: null });
+      }
+      if (v1 && v2 && v3 && v4) {
+        _this.setState({ disButtonSave: false }, _this.cbDisabled(false));
+      } else {
+        _this.setState({ disButtonSave: true }, _this.cbDisabled(true));
+      };
+      console.log(_this.state.disButtonSave);
+    }, _this.cbDisabled = function (Boolean) {
+      _this.props.cbDisabled(Boolean);
+    }, _this.cbCancel = function () {
+
+      _this.props.cbCancel();
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(CardNew, [{
+    key: 'render',
+    value: function render() {
+      //console.log(this.state.item.id);
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h3',
+          null,
+          this.props.nameCard
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            'id: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemId', onChange: this.changedId, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorId
+          )
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' \u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemName', onChange: this.changedName, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorName
+          )
+        ),
+        ' ',
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' \u0426\u0435\u043D\u0430: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemCost', onChange: this.changedCost, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorCost
+          )
+        ),
+        ' ',
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' \u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E: '
+          ),
+          _react2.default.createElement('input', { type: 'text', name: 'itemCount', onChange: this.changedCount, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorCount
+          )
+        ),
+        ' ',
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'label',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'editlabel' },
+            ' Url: '
+          ),
+          _react2.default.createElement('input', { type: 'url', name: 'itemUrl', onChange: this.changedUrl, onBlur: this.validation }),
+          _react2.default.createElement(
+            'span',
+            { className: 'error' },
+            this.state.errorUrl
+          )
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('input', { type: 'button', value: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: this.new, disabled: this.state.disButtonSave }),
+        _react2.default.createElement('input', { type: 'button', value: '\u041E\u0442\u043C\u0435\u043D\u0430', onClick: this.cbCancel })
+      );
+    }
+  }]);
+
+  return CardNew;
+}(_react2.default.Component);
+
+CardNew.propTypes = {
+  itemName: _propTypes2.default.string,
+  itemCost: _propTypes2.default.number,
+  itemCount: _propTypes2.default.number,
+  itemId: _propTypes2.default.number
+};
+exports.default = CardNew;
+
+/***/ }),
+/* 40 */
 /***/ (function(module, exports) {
 
-module.exports = [{"nameProd":"Тетрадь 12л. линейка","id":1,"cost":0.6,"photo":"Images/1.webp","count":1200},{"nameProd":"Тетрадь 12л. клетка","id":2,"cost":0.6,"photo":"Images/2.webp","count":980},{"nameProd":"Тетрадь 24л. линейка","id":3,"cost":0.9,"photo":"Images/3.jpg","count":700},{"nameProd":"Тетрадь 24л. клетка","id":4,"cost":0.9,"photo":"Images/4.jpg","count":600},{"nameProd":"Тетрадь 48л. линейка","id":5,"cost":1.5,"photo":"Images/5.jpg","count":202},{"nameProd":"Тетрадь 48л. клетка","id":6,"cost":1.5,"photo":"Images/6.jpeg","count":184},{"nameProd":"Клей-карандаш 8г","id":7,"cost":1.15,"photo":"Images/7.webp","count":325}]
+module.exports = {"nameProd":"Наименование товаров","cost":"Отпускная цена за 1 ед.","photo":"Изображение","count":"Остаток на складе","edit":"Редактировать","control":"Удалить"}
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = [{"nameProd":"Тетрадь 12л. линейка","id":1,"cost":0.62,"photo":"Images/1.webp","count":1200},{"nameProd":"Тетрадь 12л. клетка","id":2,"cost":0.64,"photo":"Images/2.webp","count":980},{"nameProd":"Тетрадь 24л. линейка","id":3,"cost":0.96,"photo":"Images/3.jpg","count":700},{"nameProd":"Тетрадь 24л. клетка","id":4,"cost":0.95,"photo":"Images/4.jpg","count":600},{"nameProd":"Тетрадь 48л. линейка","id":5,"cost":1.58,"photo":"Images/5.jpg","count":202},{"nameProd":"Тетрадь 48л. клетка","id":6,"cost":1.58,"photo":"Images/6.jpeg","count":184},{"nameProd":"Клей-карандаш 8г","id":7,"cost":1.15,"photo":"Images/7.webp","count":325}]
 
 /***/ })
 /******/ ]);

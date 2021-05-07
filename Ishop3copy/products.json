@@ -1,9 +1,9 @@
 [ 
-    {"nameProd":"Тетрадь 12л. линейка", "id":1, "cost":0.60, "photo": "Images/1.webp", "count": 1200 }, 
-    {"nameProd":"Тетрадь 12л. клетка", "id":2, "cost":0.60, "photo": "Images/2.webp", "count": 980}, 
-    {"nameProd":"Тетрадь 24л. линейка", "id":3, "cost":0.90, "photo": "Images/3.jpg", "count": 700}, 
-    {"nameProd":"Тетрадь 24л. клетка", "id":4, "cost":0.90, "photo": "Images/4.jpg", "count": 600}, 
-    {"nameProd":"Тетрадь 48л. линейка", "id":5, "cost":1.50, "photo": "Images/5.jpg", "count": 202},
-    {"nameProd":"Тетрадь 48л. клетка", "id":6, "cost":1.50, "photo": "Images/6.jpeg", "count": 184},
+    {"nameProd":"Тетрадь 12л. линейка", "id":1, "cost":0.62, "photo": "Images/1.webp", "count": 1200 }, 
+    {"nameProd":"Тетрадь 12л. клетка", "id":2, "cost":0.64, "photo": "Images/2.webp", "count": 980}, 
+    {"nameProd":"Тетрадь 24л. линейка", "id":3, "cost":0.96, "photo": "Images/3.jpg", "count": 700}, 
+    {"nameProd":"Тетрадь 24л. клетка", "id":4, "cost":0.95, "photo": "Images/4.jpg", "count": 600}, 
+    {"nameProd":"Тетрадь 48л. линейка", "id":5, "cost":1.58, "photo": "Images/5.jpg", "count": 202},
+    {"nameProd":"Тетрадь 48л. клетка", "id":6, "cost":1.58, "photo": "Images/6.jpeg", "count": 184},
     {"nameProd":"Клей-карандаш 8г", "id":7, "cost":1.15, "photo": "Images/7.webp", "count": 325}   
   ]

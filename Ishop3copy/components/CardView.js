@@ -8,7 +8,6 @@ class CardView extends React.Component{
     nameProd: PropTypes.string,  
     cost: PropTypes.number,
     count: PropTypes.number,
-    rezult: PropTypes.array,
   }
   state= {
     item:{},

@@ -5,61 +5,89 @@ import './IShop3.css';
 import ProductRow from './Product3';
 import CardView from './CardView';
 import CardEdit from './CardEdit';
+import CardNew from './CardNew';
 
 class ShopTable extends React.Component{
 
   static  propTypes = {
     selectedItemId: PropTypes.number,
-    
+    disRow: PropTypes.bool,
+    items: PropTypes.array,
   };
    
   state = {    
     selectedItemId:null,
     items:this.props.products,
-    cardMode:0           //0 - нет карточки продукта, 1 - режим просмотра, 2 режим редактирования
+    cardMode:0,           //0 - нет карточки продукта, 1 - режим просмотра, 2 режим редактирования, 3 режим ввода нового товара
+    disRow:false,  // показатель блокировки изменения строк при редактировании одной из них
   }
 
   itemMarkered = (id) => {
-    console.log('функция itemMarkered запущена', id)
-    this.setState({selectedItemId:id, cardMode:1}, console.log(this.state.selectedItemId, this.state.cardMode));
+    //console.log('функция itemMarkered запущена', id)
+    this.setState({selectedItemId:id, cardMode:1}, console.log ('cardMode ' + this.state.cardMode));
+    
   } 
 
   itemDelete = (id) => {
+    //console.log('функция itemDelete запущена');
     var filteredItems=this.state.items.filter(el => el.id!=id);
-    this.setState({items:filteredItems});
+    this.setState({items:filteredItems}, console.log ('cardMode ' + this.state.cardMode));
+    
   }
 
-  //itemEdit = (code) => {
-  //  this.setState({cardMode:2, selectedItemCode:code});
- // } 
+  itemEdit = (id) => {
+    this.setState({cardMode:2, selectedItemId:id});
+  }
+
+  itemSave = (newItem) =>{
+    let item=this.state.items.map(el => (el.id==newItem.id)
+    ?
+      newItem
+    :
+      el
+    );    
+    console.log(item)
+    this.setState({items:item, cardMode:0})    
+  }
+
+  itemSaveNew =(addItem) =>{
+    console.log(addItem);
+    //let addItems=this.state.items.push(addItem);
+    this.state.items.push(addItem);
+    //console.log(addItems);
+    this.setState({items:this.state.items, cardMode:0});
+    console.log(this.state.items);
+  }
+
+  cancel = () =>{ 
+    this.setState({cardMode:0, disRow:false})
+  }
+  disabledRow = (Boolean) => {
+    this.setState ({disRow:Boolean})
+    console.log (this.state.disRow)
+  }
+
+  newProduct = () =>{
+    this.setState({cardMode:3})
+  }
+
 
   render (){
-    let productsCode=[];
-    let productCode;
-                
-    for ( var a=0; a<this.state.items.length; a++ ){ 
-      if (this.state.items[a].id==this.state.selectedItemId){ 
-        {productCode=React.createElement(ProductRow, {products:this.state.items[a], key:this.state.items[a].id, id:this.state.items[a].id,
-          cbMarker:this.itemMarkered, cbDelete:this.itemDelete, cbEdit:this.itemEdit,  color:'#f5ab16'});  
-      productsCode.push(productCode);
-      console.log(this.state.items[a].id);
-      }   
+    var productsCode=this.state.items.map(v =>
+    <ProductRow products={v} key={v.id} id={v.id}     
+    color={
+      (v.id==this.state.selectedItemId) && ('#f5ab16')}       
             
-            productsCode.push(productCode);
-            } 
-         
-      else {productCode=React.createElement(ProductRow, {products:this.state.items[a], key:this.state.items[a].id, id:this.state.items[a].id,
-              cbMarker:this.itemMarkered, cbDelete:this.itemDelete, cbEdit:this.itemEdit});  
-          productsCode.push(productCode);
-          console.log(this.state.items[a].id, this.state.selectedItemId, this.state.cardMode);
-          }         
-    }   
-    let itemEditProps =this.state.items.find (item=>item.id=this.state.selectedItemId); 
-    //, {key:this.itemEditProps.code, item:this.itemEditProps}
-    //, {key:this.itemEditProps.code, item:this.itemEditProps}
-    //{ (this.state.cardMode=1) && <div className='Card'>{CardView}</div>}
-    //{ (this.state.cardMode=2) && <div className='Card'>{CardEdit}</div>}
-
+      cbMarker={(!this.state.disRow)&& this.itemMarkered} // коллбэки работают только если не идет редактирование строки
+      cbDelete={(!this.state.disRow)&& this.itemDelete} 
+      cbEdit={(!this.state.disRow)&&this.itemEdit}
+     />
+    );
+     
+    let itemEditProps =this.state.items.find (item=>(item.id==this.state.selectedItemId));
+    //console.log('itemEditProps ' +itemEditProps, 'cardMode '+ this.state.cardMode)
+       
+        
     return (
       <div className='ShopTable'>
         <h1 className='Header'> {this.props.shop} </h1> 
@@ -74,12 +102,17 @@ class ShopTable extends React.Component{
               <th className='Control'> {this.props.tableHead.control} </th>
             </tr>      
           </tbody>
-          <tbody className='TableRow'>{productsCode}</tbody>
-      
-        </table>         
-       
+          <tbody className='TableRow'>{productsCode}</tbody>      
+        </table> 
+        <input type='button' className='newBut' value='Новый товар' disabled={this.state.disRow} onClick={this.newProduct}/>
+
+        {(this.state.cardMode==1) && <CardView className='Card' item ={itemEditProps}/>}
+        {(this.state.cardMode==2) && <CardEdit className='Card' item ={itemEditProps} key={this.state.selectedItemId} cbSave={this.itemSave} cbCancel={this.cancel} cbDisabled={this.disabledRow}
+        nameCard='Редактирование текущего товара'/>}
+        {(this.state.cardMode==3) && <CardNew className='Card' cbAddNew={this.itemSaveNew} cbCancel={this.cancel} cbDisabled={this.disabledRow}
+        nameCard='Ввести новый товар'  items={this.state.items}/>}
       </div>
     )
-  }    
+  }  
 }
 export default ShopTable

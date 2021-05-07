@@ -1,0 +1,14 @@
+﻿.editlabel{  
+  width: 120px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.error{
+  color: red;
+}
+.button{
+  margin-right: 10px;
+  width: 100px;
+  height: 25px;
+  margin-top: 10px;
+}
