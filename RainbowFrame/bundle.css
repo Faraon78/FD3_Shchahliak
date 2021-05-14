@@ -1,0 +1,14 @@
+.MyBlock
+{
+  display: inline-block;
+  width: 400px;
+}
+
+.child
+{
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=bundle.css.map*/

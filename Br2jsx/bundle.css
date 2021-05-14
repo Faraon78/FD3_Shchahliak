@@ -1,0 +1,12 @@
+#container{
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  font-size: 30px;  
+  background-color: rgb(8, 68, 70);
+  padding: 10px;
+  color: white;
+}
+
+
+/*# sourceMappingURL=bundle.css.map*/
