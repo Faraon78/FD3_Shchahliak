@@ -12,7 +12,7 @@ class Br2jsx extends React.Component {
     words.forEach(
       (word, i)=>{
         if(i>0){
-      parts.push(<br/>)
+      parts.push(<br key={i}/>)
     };
       parts.push(word)
   });
