@@ -1,0 +1,10 @@
+.mainMenu input{
+    display: block;
+    width: 180px;
+    height: 45px;
+    font-style: italic;
+    font-size: 15px;
+    background-color: mediumslateblue;
+    border-radius: 5px;
+    margin-top: 5px;
+}

@@ -1,0 +1,55 @@
+.KidsParty{
+    background-color: rgb(224, 247, 247);
+    height: 2000px;
+}
+.mainMenu{
+float: left;
+}
+.orderButton {
+    float: right;
+    
+}.orderButton button{
+    height: 90px;
+    width: 110px;
+    border-radius: 5px;
+    background-color: rgb(153, 240, 153);
+    margin-top: 10px;
+    margin-right: 20px;
+    font-style: italic;
+    font-size: 15px;
+}.HeaderName{
+    font-size: 45px;
+    font-family: 'Niconne', cursive;
+    color: rgb(18, 18, 189);   
+    padding-left: 50px;
+}
+.Header{
+    background-color: rgb(245, 244, 188);
+    background: opacity 100%;
+    /*background-image: url('Images/kids.jpg');*/
+}
+.HeaderText{
+    font-size: 50px;
+    font-family: 'Marck Script', cursive;
+    padding-left: 50px;
+    color: deeppink;
+    font-weight: 200;
+}.mainMenu input{
+    display: block;
+    width: 180px;
+    height: 45px;
+    font-style: italic;
+    font-size: 15px;
+    background-color: mediumslateblue;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.Start{
+    text-align: center;
+    padding-left: 250px;
+    padding-right: 100px;
+    font-size: 20px;
+    padding-top: 40px;
+    font-style: italic;
+}
+/*# sourceMappingURL=bundle.css.map*/

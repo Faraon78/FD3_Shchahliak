@@ -1,0 +1,11 @@
+﻿.KidsParty{
+    background-color: rgb(224, 247, 247);
+    height: 2000px;
+}
+.mainMenu{
+float: left;
+}
+.orderButton {
+    float: right;
+    
+}
