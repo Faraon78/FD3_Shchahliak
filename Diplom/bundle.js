@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(17);
+} else {
+  module.exports = __webpack_require__(18);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(17);
-} else {
-  module.exports = __webpack_require__(18);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -312,6 +312,41 @@ module.exports = emptyFunction;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(29)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(30)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -408,7 +443,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -465,42 +500,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(29)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(30)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -524,7 +524,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -593,7 +593,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -610,7 +610,7 @@ module.exports = warning;
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(4);
+  var invariant = __webpack_require__(5);
   var warning = __webpack_require__(7);
   var ReactPropTypesSecret = __webpack_require__(9);
   var loggedTypeFailures = {};
@@ -660,7 +660,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 9 */
@@ -799,7 +799,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 12 */
@@ -994,7 +994,7 @@ module.exports = focusNode;
 "use strict";
 
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -1008,23 +1008,15 @@ var _KidsParty2 = _interopRequireDefault(_KidsParty);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var category = __webpack_require__(40);
-var category3 = __webpack_require__(41);
+var category = __webpack_require__(45);
+
 var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
 
-var stringName = 'Shchahliak_FD3_category3';
+//
 
-function storeInfo() {
-  $.ajax({
-    url: ajaxHandlerScript, type: 'POST', cache: false, dataType: 'json',
-    data: { f: 'INSERT', n: stringName, v: category3 },
-    success: InsertReady, error: errorHandler
-  });
-}
-storeInfo();
 
 _reactDom2.default.render(_react2.default.createElement(_KidsParty2.default, {
-  category: category, category3: category3
+  category: category
 }), document.getElementById('container'));
 
 /***/ }),
@@ -1040,7 +1032,7 @@ _reactDom2.default.render(_react2.default.createElement(_KidsParty2.default, {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var m=__webpack_require__(3),n=__webpack_require__(6),p=__webpack_require__(2);
+var m=__webpack_require__(4),n=__webpack_require__(6),p=__webpack_require__(2);
 function q(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var r={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function t(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}t.prototype.isReactComponent={};t.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?q("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};t.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function u(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}function v(){}v.prototype=t.prototype;var w=u.prototype=new v;w.constructor=u;m(w,t.prototype);w.isPureReactComponent=!0;function x(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}var y=x.prototype=new v;y.constructor=x;m(y,t.prototype);y.unstable_isAsyncReactComponent=!0;y.render=function(){return this.props.children};
@@ -1076,8 +1068,8 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(3);
-var invariant = __webpack_require__(4);
+var _assign = __webpack_require__(4);
+var invariant = __webpack_require__(5);
 var emptyObject = __webpack_require__(6);
 var warning = __webpack_require__(7);
 var emptyFunction = __webpack_require__(2);
@@ -2405,7 +2397,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 19 */
@@ -2451,7 +2443,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(23);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 20 */
@@ -2469,7 +2461,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),m=__webpack_require__(10),A=__webpack_require__(3),B=__webpack_require__(2),ca=__webpack_require__(11),da=__webpack_require__(12),ea=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15),C=__webpack_require__(6);
+var aa=__webpack_require__(0),m=__webpack_require__(10),A=__webpack_require__(4),B=__webpack_require__(2),ca=__webpack_require__(11),da=__webpack_require__(12),ea=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15),C=__webpack_require__(6);
 function D(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:D("227");
 var la={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function qa(a,b){return(a&b)===b}
 var ra={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ra,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){sa.hasOwnProperty(f)?D("48",f):void 0;var g=f.toLowerCase(),k=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:qa(k,b.MUST_USE_PROPERTY),
@@ -2763,11 +2755,11 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
-var invariant = __webpack_require__(4);
+var React = __webpack_require__(0);
+var invariant = __webpack_require__(5);
 var warning = __webpack_require__(7);
 var ExecutionEnvironment = __webpack_require__(10);
-var _assign = __webpack_require__(3);
+var _assign = __webpack_require__(4);
 var emptyFunction$1 = __webpack_require__(2);
 var EventListener = __webpack_require__(11);
 var getActiveElement = __webpack_require__(12);
@@ -18107,7 +18099,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 24 */
@@ -18278,11 +18270,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18303,6 +18295,10 @@ var _MenuButton2 = _interopRequireDefault(_MenuButton);
 var _StartView = __webpack_require__(38);
 
 var _StartView2 = _interopRequireDefault(_StartView);
+
+var _CategoryRoot = __webpack_require__(40);
+
+var _CategoryRoot2 = _interopRequireDefault(_CategoryRoot);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18364,7 +18360,7 @@ var KidsParty = function (_React$PureComponent) {
           mainMenu
         ),
         this.state.viewMode == 0 && _react2.default.createElement(_StartView2.default, { className: 'Start' }),
-        this.state.viewMode == 1 && _react2.default.createElement(CategoryView, { className: 'CategoryView', selectedCategory: this.state.selectedCategoryId }),
+        this.state.viewMode == 1 && _react2.default.createElement(_CategoryRoot2.default, { className: 'CategoryView', selectedCategory: this.state.selectedCategoryId }),
         this.state.viewMode == 10 && _react2.default.createElement(OrderView, { className: 'OrderView' })
       );
     }
@@ -18391,9 +18387,9 @@ exports.default = KidsParty;
 
 
 var emptyFunction = __webpack_require__(2);
-var invariant = __webpack_require__(4);
+var invariant = __webpack_require__(5);
 var warning = __webpack_require__(7);
-var assign = __webpack_require__(3);
+var assign = __webpack_require__(4);
 
 var ReactPropTypesSecret = __webpack_require__(9);
 var checkPropTypes = __webpack_require__(8);
@@ -18924,7 +18920,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 30 */
@@ -18941,7 +18937,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 var emptyFunction = __webpack_require__(2);
-var invariant = __webpack_require__(4);
+var invariant = __webpack_require__(5);
 var ReactPropTypesSecret = __webpack_require__(9);
 
 module.exports = function() {
@@ -19010,11 +19006,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19099,11 +19095,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19170,11 +19166,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19241,11 +19237,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19307,15 +19303,740 @@ exports.default = StartView;
 
 /***/ }),
 /* 40 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = [{"name":"Детские центры","id":1,"color":"#7FFFD4"},{"name":"Спортивные центры","id":2,"color":"#F0E68C"},{"name":"Аниматоры","id":3,"color":"#87CEFA"},{"name":"Фотоуслуги","id":4,"color":"#EE82EE"}]
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _CategoryView = __webpack_require__(41);
+
+var _CategoryView2 = _interopRequireDefault(_CategoryView);
+
+var _withDataLoad = __webpack_require__(42);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CategoryRoot = function (_React$PureComponent) {
+  _inherits(CategoryRoot, _React$PureComponent);
+
+  function CategoryRoot() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, CategoryRoot);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryRoot.__proto__ || Object.getPrototypeOf(CategoryRoot)).call.apply(_ref, [this].concat(args))), _this), _this.fetchConfig = {
+      URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
+      method: 'post',
+      headers: {
+        //"Accept": "application/json",
+        "Shchahliak_D3_category3": "category3"
+      }
+    }, _this.CategoryViewWithData = (0, _withDataLoad.withDataLoad)(_this.fetchConfig, "sellers")(_CategoryView2.default), _temp), _possibleConstructorReturn(_this, _ret);
+  }
+  //function restoreInfo() {
+  // $.ajax(
+  //    {
+  //        url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
+  //        data : { f : 'READ', n : stringName },
+  //        success : readReady, error : errorHandler
+  //    }
+  //);
+
+  // HOC возвращает каждый раз НОВЫЙ, обёрнутый компонент
+  // поэтому оборачивать в HOC лучше не внутри render, чтобы не рендерить каждый раз НОВЫЙ компонент
+
+
+  _createClass(CategoryRoot, [{
+    key: 'render',
+    value: function render() {
+
+      var CategoryViewWithData = this.CategoryViewWithData;
+      return _react2.default.createElement(CategoryViewWithData, null);
+    }
+  }]);
+
+  return CategoryRoot;
+}(_react2.default.PureComponent);
+
+exports.default = CategoryRoot;
 
 /***/ }),
 /* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import './CategoryView.css';
+
+var CategoryView = function (_React$PureComponent) {
+    _inherits(CategoryView, _React$PureComponent);
+
+    function CategoryView() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, CategoryView);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            sellers: _this.props.sellers
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(CategoryView, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                this.props.sellers
+            );
+        }
+    }]);
+
+    return CategoryView;
+}(_react2.default.PureComponent);
+
+CategoryView.propTypes = {
+    sellers: _propTypes2.default.object.isRequired
+};
+exports.default = CategoryView;
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.withDataLoad = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _isomorphicFetch = __webpack_require__(43);
+
+var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var withDataLoad = function withDataLoad(fetchConfig, propName) {
+  return function (Component) {
+    var ComponentWithDataLoad = function (_React$PureComponent) {
+      _inherits(ComponentWithDataLoad, _React$PureComponent);
+
+      function ComponentWithDataLoad() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, ComponentWithDataLoad);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ComponentWithDataLoad.__proto__ || Object.getPrototypeOf(ComponentWithDataLoad)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+          dataReady: false, // готовы ли данные
+          combinedProps: null // исходные пропсы, переданные HOC-у, плюс пропс propName с загруженными данными
+        }, _this.fetchError = function (errorMessage) {
+          console.error(showStr);
+        }, _this.fetchSuccess = function (loadedData) {
+          _this.setState({
+            dataReady: true,
+            combinedProps: _extends({}, _this.props, _defineProperty({}, propName, loadedData))
+          });
+        }, _this.loadData = function () {
+
+          (0, _isomorphicFetch2.default)(fetchConfig.URL, fetchConfig).then(function (response) {
+            if (!response.ok) {
+              throw new Error("fetch error " + response.status);
+            } else return response.json();
+          }).then(function (data) {
+            _this.fetchSuccess(data);
+          }).catch(function (error) {
+            _this.fetchError(error.message);
+          });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+      }
+
+      _createClass(ComponentWithDataLoad, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+          this.loadData();
+        }
+      }, {
+        key: 'render',
+        value: function render() {
+
+          if (!this.state.dataReady) return _react2.default.createElement(
+            'div',
+            null,
+            '\u0437\u0430\u0433\u0440\u0443\u0437\u043A\u0430 \u0434\u0430\u043D\u043D\u044B\u0445...'
+          );
+
+          return _react2.default.createElement(Component, this.state.combinedProps);
+        }
+      }]);
+
+      return ComponentWithDataLoad;
+    }(_react2.default.PureComponent);
+
+    return ComponentWithDataLoad;
+  };
+};
+
+exports.withDataLoad = withDataLoad;
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// the whatwg-fetch polyfill installs the fetch() function
+// on the global object (window or self)
+//
+// Return that as the export for use in Webpack, Browserify etc.
+__webpack_require__(44);
+module.exports = self.fetch.bind(self);
+
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports) {
 
-module.exports = [{"name":"Клоун Вася","id":3001,"category":"3","info1":"Веселый клоун развлечет Ваших детей","info2":"В программе: игры, танцы, шоу мыльных пузырей","price":"50","long":"60","pict":"Images3animator/cat3anim1.jpg"},{"name":"Щенячий патруль","id":3002,"category":"3","info1":"Герои любимого мультфильма на Вашем празднике","info2":"В программе: игры, танцы, викторины","price":"90","long":"60","pict":"Images3animator/cat3anim2.jpg"},{"name":"Фокусник Шляпа","id":3003,"category":"3","info1":"Фокусник добавит чуточку волшебства Вашему празднику","info2":"В программе: различные фокусы, танцы, шоу с воздушными шарами","price":"70","long":"40","pict":"Images3animator/cat3anim3.jpg"},{"name":"Клоун Кузя","id":3004,"category":"3","info1":"Клоун для детского праздника","info2":"Веселые подвижные игры и конкурсы подарят Вашему ребенку незабываемый праздник","price":"60","long":"60","pict":"Images3animator/cat3anim4.jpg"},{"name":"Аниматор Фея","id":3005,"category":"3","info1":"Аниматор Фея","info2":"Цветочная вечеринка с феей станет замечательным сюрпризом для праздника","price":"70","long":"60","pict":"Images3animator/cat3anim5.jpg"},{"name":"Шоу мыльных пузырей","id":3006,"category":"3","info1":"Волшебное шоу мыльных пузырей","info2":"Наши аниматоры показут фокусы с мульными пузырями, которые будут одинаково интересны и взрослым и детям","price":"80","long":"40","pict":"Images3animator/cat3anim6.jpg"},{"name":"Научное шоу","id":3007,"category":"3","info1":"Научное шоу на детский праздник","info2":"Научные опыты и химическое шоу не только удивит Ваших гостей, но и подарит новые знания","price":"120","long":"60","pict":"Images3animator/cat3anim7.jpg"},{"name":"Детские аниматоры","id":3008,"category":"3","info1":"Детские аниматоры в костюмах любимых героев","info2":"Мы подберем героев и программу, подходящую Вашему ребенку","price":"80","long":"60","pict":"Images3animator/cat3anim8.jpg"},{"name":"Веселый фокусник","id":3009,"category":"3","info1":"Веселые фокусы для детей","info2":"Оригинальные фокусы от опытного иллюзиониста будут интересны и детям и взрослым","price":"100","long":"30","pict":"Images3animator/cat3anim9.jpg"},{"name":"Бумажная дискотека","id":3010,"category":"3","info1":"Бумажное шоу и дискотека для детей","info2":"Безудержное веселье и танцы на бумажной дискотеке Вашего ребенка","price":"100","long":"30","pict":"Images3animator/cat3anim10.jpg"},{"name":"Дискотека с воздушными шарами","id":3011,"category":"3","info1":"Игры и танцы с воздушными шарами","info2":"Наш аниматор покажет фокусы с шарами, а дети вдоволь насладятся играми и танцами с ними","price":"110","long":"60","pict":"Images3animator/cat3anim11.jpg"},{"name":"Пиратские квест","id":3012,"category":"3","info1":"Разгадать загадки с настоящим пиратом","info2":"Детям придется проявить ум, смекалку, и умение работать в команде, чтобы отыскать сокровища пирата","price":"100","long":"60","pict":"Images3animator/cat3anim12.jpg"},{"name":"Школа волшебства","id":3013,"category":"3","info1":"Приключения по мотивам книг о Гарри Поттере","info2":"С нашим аниматором дети будут произносить заклинания, варить волшебное зелье и пройдут ритуал посвящения в Хогвартс","price":"180","long":"90","pict":"Images3animator/cat3anim13.jpg"},{"name":"Клоун Вася","id":3014,"category":"3","info1":"Веселый клоун развлечет Ваших детей","info2":"В программе: игры, танцы, шоу мыльных пузырей","price":"50","long":"60","pict":"Images3animator/cat3anim1.jpg"},{"name":"Щенячий патруль","id":3015,"category":"3","info1":"Герои любимого мультфильма на Вашем празднике","info2":"В программе: игры, танцы, викторины","price":"90","long":"60","pict":"Images3animator/cat3anim2.jpg"},{"name":"Фокусник Шляпа","id":3016,"category":"3","info1":"Фокусник добавит чуточку волшебства Вашему празднику","info2":"В программе: различные фокусы, танцы, шоу с воздушными шарами","price":"70","long":"40","pict":"Images3animator/cat3anim3.jpg"},{"name":"Клоун Кузя","id":3017,"category":"3","info1":"Клоун для детского праздника","info2":"Веселые подвижные игры и конкурсы подарят Вашему ребенку незабываемый праздник","price":"60","long":"60","pict":"Images3animator/cat3anim4.jpg"},{"name":"Аниматор Фея","id":3018,"category":"3","info1":"Аниматор Фея","info2":"Цветочная вечеринка с феей станет замечательным сюрпризом для праздника","price":"70","long":"60","pict":"Images3animator/cat3anim5.jpg"},{"name":"Шоу мыльных пузырей","id":3019,"category":"3","info1":"Волшебное шоу мыльных пузырей","info2":"Наши аниматоры показут фокусы с мульными пузырями, которые будут одинаково интересны и взрослым и детям","price":"80","long":"40","pict":"Images3animator/cat3anim6.jpg"},{"name":"Научное шоу","id":3020,"category":"3","info1":"Научное шоу на детский праздник","info2":"Научные опыты и химическое шоу не только удивит Ваших гостей, но и подарит новые знания","price":"120","long":"60","pict":"Images3animator/cat3anim7.jpg"},{"name":"Детские аниматоры","id":3021,"category":"3","info1":"Детские аниматоры в костюмах любимых героев","info2":"Мы подберем героев и программу, подходящую Вашему ребенку","price":"80","long":"60","pict":"Images3animator/cat3anim8.jpg"},{"name":"Веселый фокусник","id":3022,"category":"3","info1":"Веселые фокусы для детей","info2":"Оригинальные фокусы от опытного иллюзиониста будут интересны и детям и взрослым","price":"100","long":"30","pict":"Images3animator/cat3anim9.jpg"},{"name":"Бумажная дискотека","id":3023,"category":"3","info1":"Бумажное шоу и дискотека для детей","info2":"Безудержное веселье и танцы на бумажной дискотеке Вашего ребенка","price":"100","long":"30","pict":"Images3animator/cat3anim10.jpg"},{"name":"Дискотека с воздушными шарами","id":3024,"category":"3","info1":"Игры и танцы с воздушными шарами","info2":"Наш аниматор покажет фокусы с шарами, а дети вдоволь насладятся играми и танцами с ними","price":"110","long":"60","pict":"Images3animator/cat3anim11.jpg"},{"name":"Пиратские квест","id":3025,"category":"3","info1":"Разгадать загадки с настоящим пиратом","info2":"Детям придется проявить ум, смекалку, и умение работать в команде, чтобы отыскать сокровища пирата","price":"100","long":"60","pict":"Images3animator/cat3anim12.jpg"},{"name":"Школа волшебства","id":3026,"category":"3","info1":"Приключения по мотивам книг о Гарри Поттере","info2":"С нашим аниматором дети будут произносить заклинания, варить волшебное зелье и пройдут ритуал посвящения в Хогвартс","price":"180","long":"90","pict":"Images3animator/cat3anim13.jpg"},{"name":"Клоун Вася","id":3027,"category":"3","info1":"Веселый клоун развлечет Ваших детей","info2":"В программе: игры, танцы, шоу мыльных пузырей","price":"50","long":"60","pict":"Images3animator/cat3anim1.jpg"},{"name":"Щенячий патруль","id":3028,"category":"3","info1":"Герои любимого мультфильма на Вашем празднике","info2":"В программе: игры, танцы, викторины","price":"90","long":"60","pict":"Images3animator/cat3anim2.jpg"},{"name":"Фокусник Шляпа","id":3029,"category":"3","info1":"Фокусник добавит чуточку волшебства Вашему празднику","info2":"В программе: различные фокусы, танцы, шоу с воздушными шарами","price":"70","long":"40","pict":"Images3animator/cat3anim3.jpg"},{"name":"Клоун Кузя","id":3030,"category":"3","info1":"Клоун для детского праздника","info2":"Веселые подвижные игры и конкурсы подарят Вашему ребенку незабываемый праздник","price":"60","long":"60","pict":"Images3animator/cat3anim4.jpg"},{"name":"Аниматор Фея","id":3031,"category":"3","info1":"Аниматор Фея","info2":"Цветочная вечеринка с феей станет замечательным сюрпризом для праздника","price":"70","long":"60","pict":"Images3animator/cat3anim5.jpg"},{"name":"Шоу мыльных пузырей","id":3032,"category":"3","info1":"Волшебное шоу мыльных пузырей","info2":"Наши аниматоры показут фокусы с мульными пузырями, которые будут одинаково интересны и взрослым и детям","price":"80","long":"40","pict":"Images3animator/cat3anim6.jpg"},{"name":"Научное шоу","id":3033,"category":"3","info1":"Научное шоу на детский праздник","info2":"Научные опыты и химическое шоу не только удивит Ваших гостей, но и подарит новые знания","price":"120","long":"60","pict":"Images3animator/cat3anim7.jpg"},{"name":"Детские аниматоры","id":3034,"category":"3","info1":"Детские аниматоры в костюмах любимых героев","info2":"Мы подберем героев и программу, подходящую Вашему ребенку","price":"80","long":"60","pict":"Images3animator/cat3anim8.jpg"},{"name":"Веселый фокусник","id":3035,"category":"3","info1":"Веселые фокусы для детей","info2":"Оригинальные фокусы от опытного иллюзиониста будут интересны и детям и взрослым","price":"100","long":"30","pict":"Images3animator/cat3anim9.jpg"},{"name":"Бумажная дискотека","id":3036,"category":"3","info1":"Бумажное шоу и дискотека для детей","info2":"Безудержное веселье и танцы на бумажной дискотеке Вашего ребенка","price":"100","long":"30","pict":"Images3animator/cat3anim10.jpg"},{"name":"Дискотека с воздушными шарами","id":3037,"category":"3","info1":"Игры и танцы с воздушными шарами","info2":"Наш аниматор покажет фокусы с шарами, а дети вдоволь насладятся играми и танцами с ними","price":"110","long":"60","pict":"Images3animator/cat3anim11.jpg"},{"name":"Пиратские квест","id":3038,"category":"3","info1":"Разгадать загадки с настоящим пиратом","info2":"Детям придется проявить ум, смекалку, и умение работать в команде, чтобы отыскать сокровища пирата","price":"100","long":"60","pict":"Images3animator/cat3anim12.jpg"},{"name":"Школа волшебства","id":3039,"category":"3","info1":"Приключения по мотивам книг о Гарри Поттере","info2":"С нашим аниматором дети будут произносить заклинания, варить волшебное зелье и пройдут ритуал посвящения в Хогвартс","price":"180","long":"90","pict":"Images3animator/cat3anim13.jpg"},{"name":"Клоун Вася","id":3040,"category":"3","info1":"Веселый клоун развлечет Ваших детей","info2":"В программе: игры, танцы, шоу мыльных пузырей","price":"50","long":"60","pict":"Images3animator/cat3anim1.jpg"},{"name":"Щенячий патруль","id":3041,"category":"3","info1":"Герои любимого мультфильма на Вашем празднике","info2":"В программе: игры, танцы, викторины","price":"90","long":"60","pict":"Images3animator/cat3anim2.jpg"},{"name":"Фокусник Шляпа","id":3042,"category":"3","info1":"Фокусник добавит чуточку волшебства Вашему празднику","info2":"В программе: различные фокусы, танцы, шоу с воздушными шарами","price":"70","long":"40","pict":"Images3animator/cat3anim3.jpg"},{"name":"Клоун Кузя","id":3043,"category":"3","info1":"Клоун для детского праздника","info2":"Веселые подвижные игры и конкурсы подарят Вашему ребенку незабываемый праздник","price":"60","long":"60","pict":"Images3animator/cat3anim4.jpg"},{"name":"Аниматор Фея","id":3044,"category":"3","info1":"Аниматор Фея","info2":"Цветочная вечеринка с феей станет замечательным сюрпризом для праздника","price":"70","long":"60","pict":"Images3animator/cat3anim5.jpg"},{"name":"Шоу мыльных пузырей","id":3045,"category":"3","info1":"Волшебное шоу мыльных пузырей","info2":"Наши аниматоры показут фокусы с мульными пузырями, которые будут одинаково интересны и взрослым и детям","price":"80","long":"40","pict":"Images3animator/cat3anim6.jpg"},{"name":"Научное шоу","id":3046,"category":"3","info1":"Научное шоу на детский праздник","info2":"Научные опыты и химическое шоу не только удивит Ваших гостей, но и подарит новые знания","price":"120","long":"60","pict":"Images3animator/cat3anim7.jpg"},{"name":"Детские аниматоры","id":3047,"category":"3","info1":"Детские аниматоры в костюмах любимых героев","info2":"Мы подберем героев и программу, подходящую Вашему ребенку","price":"80","long":"60","pict":"Images3animator/cat3anim8.jpg"},{"name":"Веселый фокусник","id":3048,"category":"3","info1":"Веселые фокусы для детей","info2":"Оригинальные фокусы от опытного иллюзиониста будут интересны и детям и взрослым","price":"100","long":"30","pict":"Images3animator/cat3anim9.jpg"},{"name":"Бумажная дискотека","id":3049,"category":"3","info1":"Бумажное шоу и дискотека для детей","info2":"Безудержное веселье и танцы на бумажной дискотеке Вашего ребенка","price":"100","long":"30","pict":"Images3animator/cat3anim10.jpg"},{"name":"Дискотека с воздушными шарами","id":3050,"category":"3","info1":"Игры и танцы с воздушными шарами","info2":"Наш аниматор покажет фокусы с шарами, а дети вдоволь насладятся играми и танцами с ними","price":"110","long":"60","pict":"Images3animator/cat3anim11.jpg"},{"name":"Пиратские квест","id":3051,"category":"3","info1":"Разгадать загадки с настоящим пиратом","info2":"Детям придется проявить ум, смекалку, и умение работать в команде, чтобы отыскать сокровища пирата","price":"100","long":"60","pict":"Images3animator/cat3anim12.jpg"},{"name":"Школа волшебства","id":3052,"category":"3","info1":"Приключения по мотивам книг о Гарри Поттере","info2":"С нашим аниматором дети будут произносить заклинания, варить волшебное зелье и пройдут ритуал посвящения в Хогвартс","price":"180","long":"90","pict":"Images3animator/cat3anim13.jpg"}]
+(function(self) {
+  'use strict';
+
+  if (self.fetch) {
+    return
+  }
+
+  var support = {
+    searchParams: 'URLSearchParams' in self,
+    iterable: 'Symbol' in self && 'iterator' in Symbol,
+    blob: 'FileReader' in self && 'Blob' in self && (function() {
+      try {
+        new Blob()
+        return true
+      } catch(e) {
+        return false
+      }
+    })(),
+    formData: 'FormData' in self,
+    arrayBuffer: 'ArrayBuffer' in self
+  }
+
+  if (support.arrayBuffer) {
+    var viewClasses = [
+      '[object Int8Array]',
+      '[object Uint8Array]',
+      '[object Uint8ClampedArray]',
+      '[object Int16Array]',
+      '[object Uint16Array]',
+      '[object Int32Array]',
+      '[object Uint32Array]',
+      '[object Float32Array]',
+      '[object Float64Array]'
+    ]
+
+    var isDataView = function(obj) {
+      return obj && DataView.prototype.isPrototypeOf(obj)
+    }
+
+    var isArrayBufferView = ArrayBuffer.isView || function(obj) {
+      return obj && viewClasses.indexOf(Object.prototype.toString.call(obj)) > -1
+    }
+  }
+
+  function normalizeName(name) {
+    if (typeof name !== 'string') {
+      name = String(name)
+    }
+    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+      throw new TypeError('Invalid character in header field name')
+    }
+    return name.toLowerCase()
+  }
+
+  function normalizeValue(value) {
+    if (typeof value !== 'string') {
+      value = String(value)
+    }
+    return value
+  }
+
+  // Build a destructive iterator for the value list
+  function iteratorFor(items) {
+    var iterator = {
+      next: function() {
+        var value = items.shift()
+        return {done: value === undefined, value: value}
+      }
+    }
+
+    if (support.iterable) {
+      iterator[Symbol.iterator] = function() {
+        return iterator
+      }
+    }
+
+    return iterator
+  }
+
+  function Headers(headers) {
+    this.map = {}
+
+    if (headers instanceof Headers) {
+      headers.forEach(function(value, name) {
+        this.append(name, value)
+      }, this)
+    } else if (Array.isArray(headers)) {
+      headers.forEach(function(header) {
+        this.append(header[0], header[1])
+      }, this)
+    } else if (headers) {
+      Object.getOwnPropertyNames(headers).forEach(function(name) {
+        this.append(name, headers[name])
+      }, this)
+    }
+  }
+
+  Headers.prototype.append = function(name, value) {
+    name = normalizeName(name)
+    value = normalizeValue(value)
+    var oldValue = this.map[name]
+    this.map[name] = oldValue ? oldValue+','+value : value
+  }
+
+  Headers.prototype['delete'] = function(name) {
+    delete this.map[normalizeName(name)]
+  }
+
+  Headers.prototype.get = function(name) {
+    name = normalizeName(name)
+    return this.has(name) ? this.map[name] : null
+  }
+
+  Headers.prototype.has = function(name) {
+    return this.map.hasOwnProperty(normalizeName(name))
+  }
+
+  Headers.prototype.set = function(name, value) {
+    this.map[normalizeName(name)] = normalizeValue(value)
+  }
+
+  Headers.prototype.forEach = function(callback, thisArg) {
+    for (var name in this.map) {
+      if (this.map.hasOwnProperty(name)) {
+        callback.call(thisArg, this.map[name], name, this)
+      }
+    }
+  }
+
+  Headers.prototype.keys = function() {
+    var items = []
+    this.forEach(function(value, name) { items.push(name) })
+    return iteratorFor(items)
+  }
+
+  Headers.prototype.values = function() {
+    var items = []
+    this.forEach(function(value) { items.push(value) })
+    return iteratorFor(items)
+  }
+
+  Headers.prototype.entries = function() {
+    var items = []
+    this.forEach(function(value, name) { items.push([name, value]) })
+    return iteratorFor(items)
+  }
+
+  if (support.iterable) {
+    Headers.prototype[Symbol.iterator] = Headers.prototype.entries
+  }
+
+  function consumed(body) {
+    if (body.bodyUsed) {
+      return Promise.reject(new TypeError('Already read'))
+    }
+    body.bodyUsed = true
+  }
+
+  function fileReaderReady(reader) {
+    return new Promise(function(resolve, reject) {
+      reader.onload = function() {
+        resolve(reader.result)
+      }
+      reader.onerror = function() {
+        reject(reader.error)
+      }
+    })
+  }
+
+  function readBlobAsArrayBuffer(blob) {
+    var reader = new FileReader()
+    var promise = fileReaderReady(reader)
+    reader.readAsArrayBuffer(blob)
+    return promise
+  }
+
+  function readBlobAsText(blob) {
+    var reader = new FileReader()
+    var promise = fileReaderReady(reader)
+    reader.readAsText(blob)
+    return promise
+  }
+
+  function readArrayBufferAsText(buf) {
+    var view = new Uint8Array(buf)
+    var chars = new Array(view.length)
+
+    for (var i = 0; i < view.length; i++) {
+      chars[i] = String.fromCharCode(view[i])
+    }
+    return chars.join('')
+  }
+
+  function bufferClone(buf) {
+    if (buf.slice) {
+      return buf.slice(0)
+    } else {
+      var view = new Uint8Array(buf.byteLength)
+      view.set(new Uint8Array(buf))
+      return view.buffer
+    }
+  }
+
+  function Body() {
+    this.bodyUsed = false
+
+    this._initBody = function(body) {
+      this._bodyInit = body
+      if (!body) {
+        this._bodyText = ''
+      } else if (typeof body === 'string') {
+        this._bodyText = body
+      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+        this._bodyBlob = body
+      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+        this._bodyFormData = body
+      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+        this._bodyText = body.toString()
+      } else if (support.arrayBuffer && support.blob && isDataView(body)) {
+        this._bodyArrayBuffer = bufferClone(body.buffer)
+        // IE 10-11 can't handle a DataView body.
+        this._bodyInit = new Blob([this._bodyArrayBuffer])
+      } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
+        this._bodyArrayBuffer = bufferClone(body)
+      } else {
+        throw new Error('unsupported BodyInit type')
+      }
+
+      if (!this.headers.get('content-type')) {
+        if (typeof body === 'string') {
+          this.headers.set('content-type', 'text/plain;charset=UTF-8')
+        } else if (this._bodyBlob && this._bodyBlob.type) {
+          this.headers.set('content-type', this._bodyBlob.type)
+        } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+          this.headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8')
+        }
+      }
+    }
+
+    if (support.blob) {
+      this.blob = function() {
+        var rejected = consumed(this)
+        if (rejected) {
+          return rejected
+        }
+
+        if (this._bodyBlob) {
+          return Promise.resolve(this._bodyBlob)
+        } else if (this._bodyArrayBuffer) {
+          return Promise.resolve(new Blob([this._bodyArrayBuffer]))
+        } else if (this._bodyFormData) {
+          throw new Error('could not read FormData body as blob')
+        } else {
+          return Promise.resolve(new Blob([this._bodyText]))
+        }
+      }
+
+      this.arrayBuffer = function() {
+        if (this._bodyArrayBuffer) {
+          return consumed(this) || Promise.resolve(this._bodyArrayBuffer)
+        } else {
+          return this.blob().then(readBlobAsArrayBuffer)
+        }
+      }
+    }
+
+    this.text = function() {
+      var rejected = consumed(this)
+      if (rejected) {
+        return rejected
+      }
+
+      if (this._bodyBlob) {
+        return readBlobAsText(this._bodyBlob)
+      } else if (this._bodyArrayBuffer) {
+        return Promise.resolve(readArrayBufferAsText(this._bodyArrayBuffer))
+      } else if (this._bodyFormData) {
+        throw new Error('could not read FormData body as text')
+      } else {
+        return Promise.resolve(this._bodyText)
+      }
+    }
+
+    if (support.formData) {
+      this.formData = function() {
+        return this.text().then(decode)
+      }
+    }
+
+    this.json = function() {
+      return this.text().then(JSON.parse)
+    }
+
+    return this
+  }
+
+  // HTTP methods whose capitalization should be normalized
+  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+
+  function normalizeMethod(method) {
+    var upcased = method.toUpperCase()
+    return (methods.indexOf(upcased) > -1) ? upcased : method
+  }
+
+  function Request(input, options) {
+    options = options || {}
+    var body = options.body
+
+    if (input instanceof Request) {
+      if (input.bodyUsed) {
+        throw new TypeError('Already read')
+      }
+      this.url = input.url
+      this.credentials = input.credentials
+      if (!options.headers) {
+        this.headers = new Headers(input.headers)
+      }
+      this.method = input.method
+      this.mode = input.mode
+      if (!body && input._bodyInit != null) {
+        body = input._bodyInit
+        input.bodyUsed = true
+      }
+    } else {
+      this.url = String(input)
+    }
+
+    this.credentials = options.credentials || this.credentials || 'omit'
+    if (options.headers || !this.headers) {
+      this.headers = new Headers(options.headers)
+    }
+    this.method = normalizeMethod(options.method || this.method || 'GET')
+    this.mode = options.mode || this.mode || null
+    this.referrer = null
+
+    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
+      throw new TypeError('Body not allowed for GET or HEAD requests')
+    }
+    this._initBody(body)
+  }
+
+  Request.prototype.clone = function() {
+    return new Request(this, { body: this._bodyInit })
+  }
+
+  function decode(body) {
+    var form = new FormData()
+    body.trim().split('&').forEach(function(bytes) {
+      if (bytes) {
+        var split = bytes.split('=')
+        var name = split.shift().replace(/\+/g, ' ')
+        var value = split.join('=').replace(/\+/g, ' ')
+        form.append(decodeURIComponent(name), decodeURIComponent(value))
+      }
+    })
+    return form
+  }
+
+  function parseHeaders(rawHeaders) {
+    var headers = new Headers()
+    rawHeaders.split(/\r?\n/).forEach(function(line) {
+      var parts = line.split(':')
+      var key = parts.shift().trim()
+      if (key) {
+        var value = parts.join(':').trim()
+        headers.append(key, value)
+      }
+    })
+    return headers
+  }
+
+  Body.call(Request.prototype)
+
+  function Response(bodyInit, options) {
+    if (!options) {
+      options = {}
+    }
+
+    this.type = 'default'
+    this.status = 'status' in options ? options.status : 200
+    this.ok = this.status >= 200 && this.status < 300
+    this.statusText = 'statusText' in options ? options.statusText : 'OK'
+    this.headers = new Headers(options.headers)
+    this.url = options.url || ''
+    this._initBody(bodyInit)
+  }
+
+  Body.call(Response.prototype)
+
+  Response.prototype.clone = function() {
+    return new Response(this._bodyInit, {
+      status: this.status,
+      statusText: this.statusText,
+      headers: new Headers(this.headers),
+      url: this.url
+    })
+  }
+
+  Response.error = function() {
+    var response = new Response(null, {status: 0, statusText: ''})
+    response.type = 'error'
+    return response
+  }
+
+  var redirectStatuses = [301, 302, 303, 307, 308]
+
+  Response.redirect = function(url, status) {
+    if (redirectStatuses.indexOf(status) === -1) {
+      throw new RangeError('Invalid status code')
+    }
+
+    return new Response(null, {status: status, headers: {location: url}})
+  }
+
+  self.Headers = Headers
+  self.Request = Request
+  self.Response = Response
+
+  self.fetch = function(input, init) {
+    return new Promise(function(resolve, reject) {
+      var request = new Request(input, init)
+      var xhr = new XMLHttpRequest()
+
+      xhr.onload = function() {
+        var options = {
+          status: xhr.status,
+          statusText: xhr.statusText,
+          headers: parseHeaders(xhr.getAllResponseHeaders() || '')
+        }
+        options.url = 'responseURL' in xhr ? xhr.responseURL : options.headers.get('X-Request-URL')
+        var body = 'response' in xhr ? xhr.response : xhr.responseText
+        resolve(new Response(body, options))
+      }
+
+      xhr.onerror = function() {
+        reject(new TypeError('Network request failed'))
+      }
+
+      xhr.ontimeout = function() {
+        reject(new TypeError('Network request failed'))
+      }
+
+      xhr.open(request.method, request.url, true)
+
+      if (request.credentials === 'include') {
+        xhr.withCredentials = true
+      }
+
+      if ('responseType' in xhr && support.blob) {
+        xhr.responseType = 'blob'
+      }
+
+      request.headers.forEach(function(value, name) {
+        xhr.setRequestHeader(name, value)
+      })
+
+      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
+    })
+  }
+  self.fetch.polyfill = true
+})(typeof self !== 'undefined' ? self : this);
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Детские центры","id":1,"color":"#7FFFD4"},{"name":"Спортивные центры","id":2,"color":"#F0E68C"},{"name":"Аниматоры","id":3,"color":"#87CEFA"},{"name":"Фотоуслуги","id":4,"color":"#EE82EE"}]
 
 /***/ })
 /******/ ]);

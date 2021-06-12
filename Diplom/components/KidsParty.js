@@ -7,6 +7,7 @@ import OrderButton from './OrderButton';
 import Header from './Header';
 import MenuButton from './MenuButton';
 import StartView from './StartView';
+import CategoryRoot from './CategoryRoot';
 
 class KidsParty extends React.PureComponent {
 
@@ -43,7 +44,7 @@ class KidsParty extends React.PureComponent {
       </div> 
         <div className='mainMenu'>{mainMenu}</div>
         {(this.state.viewMode==0) && <StartView className='Start'/>}
-        {(this.state.viewMode==1) && <CategoryView className='CategoryView' selectedCategory={this.state.selectedCategoryId}/>}
+        {(this.state.viewMode==1) && <CategoryRoot className='CategoryView' selectedCategory={this.state.selectedCategoryId}/>}
         {(this.state.viewMode==10) && <OrderView className='OrderView'/>}
         
       </div>

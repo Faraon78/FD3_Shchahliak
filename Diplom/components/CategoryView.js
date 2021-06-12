@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 //import './CategoryView.css';
 
 class CategoryView extends React.PureComponent {
+    static propTypes = {
+        sellers: PropTypes.object.isRequired,
+      };
     state = {
         sellers:this.props.sellers,
         }
     render() {
         return (
-            <div></div>
+            <div>{this.props.sellers}</div>
             
         )
 
