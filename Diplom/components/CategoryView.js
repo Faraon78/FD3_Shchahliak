@@ -11,8 +11,10 @@ class CategoryView extends React.PureComponent {
         sellers:this.props.sellers,
         }
     render() {
+        console.log(this.props.sellers);
+
         return (
-            <div>{this.props.sellers}</div>
+            <div>Здесь должны быть данные</div>
             
         )
 

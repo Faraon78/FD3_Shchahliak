@@ -34,10 +34,10 @@ float: left;
     padding-left: 50px;
     color: deeppink;
     font-weight: 200;
-}.mainMenu input{
+}.mainMenu button{
     display: block;
-    width: 180px;
-    height: 45px;
+    width: 200px;
+    height: 60px;
     font-style: italic;
     font-size: 15px;
     background-color: mediumslateblue;

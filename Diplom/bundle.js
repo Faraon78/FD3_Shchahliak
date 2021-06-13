@@ -19208,8 +19208,12 @@ var MenuButton = function (_React$PureComponent) {
         key: 'render',
         value: function render() {
 
-            return _react2.default.createElement('input', { type: 'button', className: 'mainButton', key: this.props.id, value: this.props.name, style: { backgroundColor: this.props.color },
-                onClick: this.selected });
+            return _react2.default.createElement(
+                'button',
+                { className: 'mainButton', key: this.props.id, style: { backgroundColor: this.props.color },
+                    onClick: this.selected },
+                this.props.name
+            );
         }
     }]);
 
@@ -19332,8 +19336,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var CategoryRoot = function (_React$PureComponent) {
-  _inherits(CategoryRoot, _React$PureComponent);
+var CategoryRoot = function (_React$Component) {
+  _inherits(CategoryRoot, _React$Component);
 
   function CategoryRoot() {
     var _ref;
@@ -19349,24 +19353,9 @@ var CategoryRoot = function (_React$PureComponent) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryRoot.__proto__ || Object.getPrototypeOf(CategoryRoot)).call.apply(_ref, [this].concat(args))), _this), _this.fetchConfig = {
       URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
       method: 'post',
-      headers: {
-        //"Accept": "application/json",
-        "Shchahliak_D3_category3": "category3"
-      }
+      data: { f: "READ", n: "Shchahliak_D3_category3" }
     }, _this.CategoryViewWithData = (0, _withDataLoad.withDataLoad)(_this.fetchConfig, "sellers")(_CategoryView2.default), _temp), _possibleConstructorReturn(_this, _ret);
   }
-  //function restoreInfo() {
-  // $.ajax(
-  //    {
-  //        url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
-  //        data : { f : 'READ', n : stringName },
-  //        success : readReady, error : errorHandler
-  //    }
-  //);
-
-  // HOC возвращает каждый раз НОВЫЙ, обёрнутый компонент
-  // поэтому оборачивать в HOC лучше не внутри render, чтобы не рендерить каждый раз НОВЫЙ компонент
-
 
   _createClass(CategoryRoot, [{
     key: 'render',
@@ -19378,7 +19367,7 @@ var CategoryRoot = function (_React$PureComponent) {
   }]);
 
   return CategoryRoot;
-}(_react2.default.PureComponent);
+}(_react2.default.Component);
 
 exports.default = CategoryRoot;
 
@@ -19435,10 +19424,12 @@ var CategoryView = function (_React$PureComponent) {
     _createClass(CategoryView, [{
         key: 'render',
         value: function render() {
+            console.log(this.props.sellers);
+
             return _react2.default.createElement(
                 'div',
                 null,
-                this.props.sellers
+                '\u0417\u0434\u0435\u0441\u044C \u0434\u043E\u043B\u0436\u043D\u044B \u0431\u044B\u0442\u044C \u0434\u0430\u043D\u043D\u044B\u0435'
             );
         }
     }]);
@@ -19505,7 +19496,7 @@ var withDataLoad = function withDataLoad(fetchConfig, propName) {
           dataReady: false, // готовы ли данные
           combinedProps: null // исходные пропсы, переданные HOC-у, плюс пропс propName с загруженными данными
         }, _this.fetchError = function (errorMessage) {
-          console.error(showStr);
+          console.error('error');
         }, _this.fetchSuccess = function (loadedData) {
           _this.setState({
             dataReady: true,
@@ -19533,7 +19524,7 @@ var withDataLoad = function withDataLoad(fetchConfig, propName) {
       }, {
         key: 'render',
         value: function render() {
-
+          console.log(this.state.combinedProps, this.state.dataReady);
           if (!this.state.dataReady) return _react2.default.createElement(
             'div',
             null,
@@ -20036,7 +20027,7 @@ module.exports = self.fetch.bind(self);
 /* 45 */
 /***/ (function(module, exports) {
 
-module.exports = [{"name":"Детские центры","id":1,"color":"#7FFFD4"},{"name":"Спортивные центры","id":2,"color":"#F0E68C"},{"name":"Аниматоры","id":3,"color":"#87CEFA"},{"name":"Фотоуслуги","id":4,"color":"#EE82EE"}]
+module.exports = [{"name":"Детские развлекательные центры","id":1,"color":"#7FFFD4"},{"name":"Тематические развлечения","id":2,"color":"#F0E68C"},{"name":"Аниматоры","id":3,"color":"#87CEFA"},{"name":"Фотоуслуги","id":4,"color":"#EE82EE"},{"name":"Праздничная выпечка","id":5,"color":"#FFCBC1"}]
 
 /***/ })
 /******/ ]);

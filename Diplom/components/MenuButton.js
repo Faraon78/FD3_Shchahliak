@@ -14,8 +14,8 @@ class MenuButton extends React.PureComponent {
             
         
         return (
-            <input type="button" className="mainButton" key={this.props.id} value= {this.props.name} style={{backgroundColor:this.props.color}}
-            onClick={this.selected}/>
+            <button className="mainButton" key={this.props.id}  style={{backgroundColor:this.props.color}}
+            onClick={this.selected}>{this.props.name}</button>
                
             
             

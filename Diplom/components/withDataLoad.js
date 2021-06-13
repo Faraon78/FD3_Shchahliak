@@ -15,7 +15,7 @@ let withDataLoad = (fetchConfig,propName) => Component => {
         };
       
         fetchError = (errorMessage) => {
-          console.error(showStr);
+          console.error('error');
         };
       
         fetchSuccess = (loadedData) => {
@@ -46,17 +46,18 @@ let withDataLoad = (fetchConfig,propName) => Component => {
         };
       
         render() {
-      
+          console.log(this.state.combinedProps, this.state.dataReady);
           if ( !this.state.dataReady )
             return <div>загрузка данных...</div>;
       
           return <Component {...this.state.combinedProps} /> ;
+          
         }
       
       }
 
       return ComponentWithDataLoad;
-
+      
 
 }
 
