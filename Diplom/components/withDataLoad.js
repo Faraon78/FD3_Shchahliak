@@ -19,6 +19,7 @@ let withDataLoad = (fetchConfig,propName) => Component => {
         };
       
         fetchSuccess = (loadedData) => {
+          //console.log(loadedData);
           this.setState({
             dataReady:true,
             combinedProps:{...this.props,[propName]:loadedData},
@@ -32,11 +33,14 @@ let withDataLoad = (fetchConfig,propName) => Component => {
                   if (!response.ok) {
                       throw new Error("fetch error " + response.status);
                   }
-                  else
-                      return response.json();
+                  else{
+                    return response.json();
+                    
+                  }
               })
               .then( data => {
-                  this.fetchSuccess(data);
+                  this.fetchSuccess(JSON.parse(data.result));
+                  
               })
               .catch( error => {
                   this.fetchError(error.message);

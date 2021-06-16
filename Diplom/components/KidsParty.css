@@ -1,6 +1,7 @@
 ﻿.KidsParty{
     background-color: rgb(224, 247, 247);
-    height: 2000px;
+    height: 100%;
+    min-height: 2000px;
 }
 .mainMenu{
 float: left;
