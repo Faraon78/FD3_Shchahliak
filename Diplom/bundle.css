@@ -62,6 +62,8 @@ float: left;
 }img{
     width: 180px;
     margin-left: 20px;
+    max-height: 180px;
+    
 }
 h3{
     font-style: italic;
@@ -87,6 +89,9 @@ button{
 }
 button:hover{
     cursor: pointer;
+}
+.Pict{
+    max-height: 140px;
 }
 
 h1{
