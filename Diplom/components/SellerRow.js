@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import './SellerRow.css';
 
 class SellerRow extends React.PureComponent {
-    
+  itemclicked = (EO) => {
+    this.props.cbChoiceSellerId(this.props.seller.id);
+    console.log(this.props.seller.id);
+  }    
     
     render() {
          
@@ -15,7 +18,7 @@ class SellerRow extends React.PureComponent {
               <td className='Long'> {this.props.seller.long} минут </td>
               <td className='Price'>от {this.props.seller.price} руб.</td>
               <td className = 'ItemOrderButton'>
-                <button id={this.props.seller.id} onClick={this.itemOrderButton}>Добавить в заказ</button> 
+                <button id={this.props.seller.id} onClick={this.itemOrderButton}>Больше информации</button> 
               </td>
             </tr>     
           )

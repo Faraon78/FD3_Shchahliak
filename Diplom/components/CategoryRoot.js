@@ -1,39 +1,40 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import CategoryView from './CategoryView';
 import { withDataLoad } from './withDataLoad';
 
-let sp = new URLSearchParams();
-    let stringName="";
-      //if (this.state.selectedCategory==3){
-      stringName="Shchahliak_category4"
-    //}
-    sp.append("f", "READ", );
-    sp.append("n", stringName);
+let sp3 = new URLSearchParams();
+    sp3.append("f", "READ", );
+    sp3.append("n", "Shchahliak_category3");
   class CategoryRoot extends React.PureComponent {
-   // getInitialState(){
+  
+    fetchConfig={     
+      URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
+      method: 'post',    
+      body: sp3,
     
-   // }
-  state = {
-    //sellers:this.props.sellers,
-    //selectedCategoryId:this.props.selectedCategoryId,
-    //category:this.props.category
-  }   
-  fetchConfig={    
-    URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
-    method: 'post',    
-    body: sp,
   };
-
+  
   CategoryViewWithData=withDataLoad(this.fetchConfig,"sellers")(CategoryView);
 
   render() {
-    console.log(this.props.selectedCategoryId, this.props.selectedCategoryName);
+    console.log(this.props.match.params);
+    let categoryId=parseInt(this.props.match.params.selectedCategoryId);
+    
+    let pageNum=parseInt(this.props.match.params.pageNum);
+
+    console.log(categoryId, pageNum);
 
     
     let CategoryViewWithData=this.CategoryViewWithData;
-    return <CategoryViewWithData selectedCategoryId={this.props.selectedCategoryId} selectedCategoryName={this.props.selectedCategoryName}/> ;
-
+    return (
+      
+    <div>
+      <CategoryViewWithData selectedCategoryId={categoryId} pageNum={pageNum}/> ;
+        
+    </div>
+    )
   }
 
 }

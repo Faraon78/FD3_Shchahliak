@@ -2,34 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import SellerRow from './SellerRow';
-import CategoryPage from './CategoryPage';
 
-import './CategoryView.css';
+//import './CategoryView.css';
 const category= require('../Catalog/category.json');
-class CategoryView extends React.Component {
+class CategoryPage extends React.PureComponent {
     static propTypes = {
         sellers: PropTypes.array,
         selectedPagesNum:PropTypes.number
       };
     state = {
-        sellers:this.props.sellers,        
-        pageNum:this.props.pageNum,
+        sellers:this.props.sellers,
+        selectedCategoryId:this.props.selectedCategoryId,
+        selectedPagesNum:1,
         choiceSellerId:null,
         sellersViewMode:0,     //0 - вид общего списка, 1 - карточка продавца         
         }
-      
+    selectPages= (value) => {
+        console.log("выбрана страница "+ value);
+        this.setState({selectedPagesNum:value}, console.log(this.state.selectedPagesNum))
+    }    
     choiceSellerId =(id) => {
         this.setState({sellersViewMode:1, choiceSellerId:id});
         
     }
 
     render() {
-        
-        console.log(this.props.selectedCategoryId, this.props.pageNum);
+        console.log(this.props.selectedCategoryId);
         var categoryName=category[this.props.selectedCategoryId].name;
-        //console.log(categoryName);
+        console.log(categoryName);
 
         var categoryLength=this.state.sellers.length;
         var pages=Math.ceil(categoryLength/10);
@@ -38,26 +39,16 @@ class CategoryView extends React.Component {
 
         var pagesCount=[];
         for(let p=1; p<=pages;p++){
-            
-            var count=<NavLink to={`/category-${this.props.selectedCategoryId}-${p}`}
-                         className="pages"  activeClassName="ActivePageLink"  key={p}>   
-                <li value={p}   id={p}>  {p}  </li>
-                </NavLink>;
-            console.log(p);
-            pagesCount.push(count)
-            
-        };
+            var count=<li value={p} onClick={this.selectPages} key={p} id={p}><a className="pages" >  {p}  </a></li>;
+            pagesCount.push(count);
+        }
         console.log(pagesCount);
-        console.log(this.state.pageNum);
 
-        var itemPageStart=(this.state.pageNum-1)*10;
-        var itemPageEnd=(this.state.pageNum*10);
-
-        console.log(itemPageStart, itemPageEnd);
-
-        var itemSeller=this.state.sellers.slice(itemPageStart,itemPageEnd);
-        //console.log(itemSeller);
+        var itemPageStart=this.state.selectedPagesNum-1;
+        var itemPageEnd=(this.state.selectedPagesNum*10)-1;
         
+        console.log(itemPageStart, itemPageEnd);
+        var itemSeller=this.state.sellers.slice(itemPageStart,itemPageEnd);
         var itemSellerPage=itemSeller.map(v =>
             
             <SellerRow seller={v} key={v.id} id={v.id} name={v.name} info1={v.info1} info2={v.info2} 
@@ -68,18 +59,14 @@ class CategoryView extends React.Component {
         return (
             <div>
                 <h1>{categoryName}</h1>
-                
                 {(this.state.sellersViewMode==0) &&
                 <div>
                     <ul className="PagesCount">стр. {  pagesCount  }</ul>
-                    
                     <table className='Table'>         
                         <tbody className='TableRow'>{itemSellerPage}</tbody>      
                     </table>
-                
                 </div>} 
                 {(this.state.sellersViewMode==1) && <SellerCard className="SellerCard" item={this.state.sellers.id}/>}
-                  
             </div>
             
         )
@@ -88,9 +75,9 @@ class CategoryView extends React.Component {
 
 }
 
-export default CategoryView;
+export default CategoryPage;
 //<Switch>  
-//<Route path="/" exact component={StartView}/> 
-//<Route path="/Category-:selectedCategoryId" exact component={CategoryPage} render={ props => <div>zzz</div> }/>
-
-//</Switch>  onClick={this.selectPages}
+//        <Route path="/" exact component={StartView}/> 
+////        <Route path="/Category-:selectedCategoryId" exact component={CategoryRoot} />
+        
+//      </Switch>   

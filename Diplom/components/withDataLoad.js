@@ -28,7 +28,7 @@ let withDataLoad = (fetchConfig,propName) => Component => {
       
         loadData = () => {
       
-          isoFetch(fetchConfig.URL, fetchConfig)
+          isoFetch("https://fe.it-academy.by/AjaxStringStorage2.php", fetchConfig)
               .then( response => {
                   if (!response.ok) {
                       throw new Error("fetch error " + response.status);

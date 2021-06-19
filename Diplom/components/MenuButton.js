@@ -16,12 +16,12 @@ class MenuButton extends React.PureComponent {
         
         return (
             <div>
-            {(this.props.id==0) && <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
+            {(this.props.id==0) && <NavLink to="/" exact className="PageLink" >
                 <button className="mainButton"   style={{backgroundColor:this.props.color}}  id={this.props.id} 
                 onClick={this.selected}>{this.props.name}</button>
             </NavLink>}
 
-            {(this.props.id>0) && <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
+            {(this.props.id>0) && <NavLink to={`/category-${this.props.id}-1`} className="PageLink" >
                 <button className="mainButton"   style={{backgroundColor:this.props.color}}  id={this.props.id} 
                 onClick={this.selected}>{this.props.name}</button>
             </NavLink>}
@@ -36,3 +36,4 @@ class MenuButton extends React.PureComponent {
 }
 
 export default MenuButton;
+//activeClassName="ActivePageLink"
