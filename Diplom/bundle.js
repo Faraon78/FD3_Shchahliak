@@ -2506,8 +2506,8 @@ var sp3 = new URLSearchParams();
 sp3.append("f", "READ");
 sp3.append("n", "Shchahliak_category3");
 
-var CategoryRoot = function (_React$PureComponent) {
-  _inherits(CategoryRoot, _React$PureComponent);
+var CategoryRoot = function (_React$Component) {
+  _inherits(CategoryRoot, _React$Component);
 
   function CategoryRoot() {
     var _ref;
@@ -2520,7 +2520,9 @@ var CategoryRoot = function (_React$PureComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryRoot.__proto__ || Object.getPrototypeOf(CategoryRoot)).call.apply(_ref, [this].concat(args))), _this), _this.fetchConfig = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryRoot.__proto__ || Object.getPrototypeOf(CategoryRoot)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      pageNum: parseInt(_this.props.match.params.pageNum)
+    }, _this.fetchConfig = {
       URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
       method: 'post',
       body: sp3
@@ -2542,14 +2544,14 @@ var CategoryRoot = function (_React$PureComponent) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(CategoryViewWithData, { selectedCategoryId: categoryId, pageNum: pageNum }),
+        _react2.default.createElement(CategoryViewWithData, { selectedCategoryId: categoryId, pageNum: this.state.pageNum }),
         ' ;'
       );
     }
   }]);
 
   return CategoryRoot;
-}(_react2.default.PureComponent);
+}(_react2.default.Component);
 
 exports.default = CategoryRoot;
 
@@ -23887,7 +23889,8 @@ var KidsParty = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = KidsParty.__proto__ || Object.getPrototypeOf(KidsParty)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       selectedCategoryId: null,
-      selectedCategoryName: ""
+      selectedCategoryName: "",
+      selectedPage: 1
     }, _this.selectedCategory = function (itemId, itemName) {
       if (itemId == 0) {
         _this.setState({ selectedCategoryId: null, selectedCategoryName: "" });
@@ -23930,7 +23933,7 @@ var KidsParty = function (_React$Component) {
           _reactRouterDom.Switch,
           null,
           _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: _StartView2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: '/Category-:selectedCategoryId-:pageNum', exact: true, component: _CategoryRoot2.default })
+          _react2.default.createElement(_reactRouterDom.Route, { path: '/Category-:selectedCategoryId-:pageNum', component: _CategoryRoot2.default })
         )
       );
     }
@@ -24414,8 +24417,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var withDataLoad = function withDataLoad(fetchConfig, propName) {
   return function (Component) {
-    var ComponentWithDataLoad = function (_React$PureComponent) {
-      _inherits(ComponentWithDataLoad, _React$PureComponent);
+    var ComponentWithDataLoad = function (_React$Component) {
+      _inherits(ComponentWithDataLoad, _React$Component);
 
       function ComponentWithDataLoad() {
         var _ref;
@@ -24475,7 +24478,7 @@ var withDataLoad = function withDataLoad(fetchConfig, propName) {
       }]);
 
       return ComponentWithDataLoad;
-    }(_react2.default.PureComponent);
+    }(_react2.default.Component);
 
     return ComponentWithDataLoad;
   };

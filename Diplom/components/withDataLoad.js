@@ -3,7 +3,7 @@ import isoFetch from 'isomorphic-fetch';
 
 let withDataLoad = (fetchConfig,propName) => Component => {
 
-    class ComponentWithDataLoad extends React.PureComponent {
+    class ComponentWithDataLoad extends React.Component {
 
         componentDidMount() {
           this.loadData();

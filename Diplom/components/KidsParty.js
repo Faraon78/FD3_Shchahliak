@@ -23,7 +23,8 @@ class KidsParty extends React.Component {
 
   state = {
     selectedCategoryId:null,
-    selectedCategoryName:"",    
+    selectedCategoryName:"", 
+    selectedPage:1   
   }
   selectedCategory = (itemId, itemName) => {
     if (itemId==0){
@@ -60,7 +61,7 @@ class KidsParty extends React.Component {
 
       <Switch>  
         <Route path="/" exact component={StartView}/> 
-        <Route path="/Category-:selectedCategoryId-:pageNum" exact component={CategoryRoot} />
+        <Route path="/Category-:selectedCategoryId-:pageNum" component={CategoryRoot} />
         
       </Switch>          
           

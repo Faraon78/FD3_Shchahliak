@@ -7,7 +7,10 @@ import { withDataLoad } from './withDataLoad';
 let sp3 = new URLSearchParams();
     sp3.append("f", "READ", );
     sp3.append("n", "Shchahliak_category3");
-  class CategoryRoot extends React.PureComponent {
+  class CategoryRoot extends React.Component {
+    state={
+      pageNum:parseInt(this.props.match.params.pageNum)
+    }
   
     fetchConfig={     
       URL: "https://fe.it-academy.by/AjaxStringStorage2.php",
@@ -31,7 +34,7 @@ let sp3 = new URLSearchParams();
     return (
       
     <div>
-      <CategoryViewWithData selectedCategoryId={categoryId} pageNum={pageNum}/> ;
+      <CategoryViewWithData selectedCategoryId={categoryId} pageNum={this.state.pageNum}/> ;
         
     </div>
     )
