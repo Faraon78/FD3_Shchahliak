@@ -2,6 +2,11 @@
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import combinedReducer from '../redux/reducers.js';
+
 
 import './KidsParty.css';
 
@@ -11,8 +16,10 @@ import MenuButton from './MenuButton';
 import StartView from './StartView';
 import CategoryRoot from './CategoryRoot';
 import CategoryView from './CategoryView';
+import SellerCard from './SellerCard';
 
 const category= require('../Catalog/category.json');
+let store=createStore(combinedReducer);
 class KidsParty extends React.Component {
 
   static propTypes = {
@@ -39,8 +46,6 @@ class KidsParty extends React.Component {
 
   render() {
     
-    console.log(this.state.selectedCategoryId);
-    
     var copyCategory=category;
       var mainMenu=copyCategory.map(v =>
       <MenuButton yourCategory={v}    key={v.k}  id={v.id}
@@ -50,6 +55,7 @@ class KidsParty extends React.Component {
     );
     
     return (
+      <Provider store={store}>
       <div className='KidsParty'> 
              
       <div> 
@@ -61,15 +67,16 @@ class KidsParty extends React.Component {
 
       <Switch>  
         <Route path="/" exact component={StartView}/> 
-        <Route path="/Category-:selectedCategoryId-:pageNum" component={CategoryRoot} />
-        
+        <Route path="/Category-:selectedCategoryId-page:pageNum" exact component={CategoryRoot} />
+        <Route path="/Category-:selectedCategoryId-item:itemId"  component={CategoryRoot}/>
       </Switch>          
           
        
         
       </div>
+      </Provider>
     )
-    ;
+    
 
   }
 

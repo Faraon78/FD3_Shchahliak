@@ -1,4 +1,4 @@
-img{
+.Pict img{
     width: 180px;
     margin-left: 20px;
     max-height: 180px;
@@ -16,7 +16,7 @@ h3{
     font-size: larger;
     width: 100px;
 }
-button{
+.ItemOrderButton button{
     width: 120px;
     height: 40px;
     font-style: italic;
@@ -32,4 +32,3 @@ button:hover{
 .Pict{
     max-height: 140px;
 }
-

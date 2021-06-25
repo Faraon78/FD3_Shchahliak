@@ -1,0 +1,35 @@
+.sellerCard{
+    width: 700px;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px;
+    padding-top: 40px;
+    font-style: italic;
+    display: inline-block;
+    vertical-align: top;
+  
+}
+.sellerCard h2{
+    color: crimson;
+}
+.sellerCardImg{
+    display: inline-block;
+    
+}
+.sellerCardImg img{
+    max-width: 500px;
+    padding-top: 40px;
+}
+.cardButton button{
+    width: 120px;
+    height: 60px;
+    font-style: italic;
+    font-size: 15px;
+    background-color: rgb(180, 169, 243);
+    border-radius: 5px;    
+    margin-left: 20px;
+}
+div .cardButton {
+    display: inline-block;
+}

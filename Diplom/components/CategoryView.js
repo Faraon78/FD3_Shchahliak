@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import SellerRow from './SellerRow';
-import CategoryPage from './CategoryPage';
+import SellerCard from './SellerCard';
 
 import './CategoryView.css';
 const category= require('../Catalog/category.json');
@@ -17,59 +17,62 @@ class CategoryView extends React.Component {
         sellers:this.props.sellers,        
         pageNum:this.props.pageNum,
         choiceSellerId:null,
-        sellersViewMode:0,     //0 - вид общего списка, 1 - карточка продавца         
+              
         }
       
     choiceSellerId =(id) => {
-        this.setState({sellersViewMode:1, choiceSellerId:id});
+        console.log("запустили callBack ")
+        this.setState({choiceSellerId:id});
         
     }
 
     render() {
+        console.log("Запустили рендер CategoryView");
         
-        console.log(this.props.selectedCategoryId, this.props.pageNum);
+        console.log(this.props.itemId, this.props.pageNum);
         var categoryName=category[this.props.selectedCategoryId].name;
-        //console.log(categoryName);
 
-        var categoryLength=this.state.sellers.length;
-        var pages=Math.ceil(categoryLength/10);
-
-        console.log(categoryLength, pages);
-
-        var pagesCount=[];
-        for(let p=1; p<=pages;p++){
-            
-            var count=<NavLink to={`/category-${this.props.selectedCategoryId}-${p}`}
-                         className="pages"  activeClassName="ActivePageLink"  key={p}>   
-                <li value={p}   id={p}>  {p}  </li>
-                </NavLink>;
-            console.log(p);
-            pagesCount.push(count)
-            
-        };
-        console.log(pagesCount);
-        console.log(this.state.pageNum);
-
-        var itemPageStart=(this.state.pageNum-1)*10;
-        var itemPageEnd=(this.state.pageNum*10);
-
-        console.log(itemPageStart, itemPageEnd);
-
-        var itemSeller=this.state.sellers.slice(itemPageStart,itemPageEnd);
-        //console.log(itemSeller);
+        if(this.props.pageNum){
+            var categoryLength=this.state.sellers.length;
+            var pages=Math.ceil(categoryLength/10);
         
-        var itemSellerPage=itemSeller.map(v =>
+            var pagesCount=[];
+            for(let p=1; p<=pages;p++){
             
-            <SellerRow seller={v} key={v.id} id={v.id} name={v.name} info1={v.info1} info2={v.info2} 
-            price={v.price} long={v.long} pict={v.pict} category={v.category} cbChoiceSellerId={this.choiceSellerId}
+                var count=<NavLink to={`/category-${this.props.selectedCategoryId}-page${p}`}
+                         className="pages"  activeClassName="ActivePageLink"  key={p}>   
+                    <li value={p}   id={p}>  {p}  </li>
+                    </NavLink>;
+            
+                pagesCount.push(count)
+            
+            }   ;
+        
+            var itemPageStart=(this.props.pageNum-1)*10;
+            var itemPageEnd=(this.props.pageNum*10);
+
+            console.log(itemPageStart, itemPageEnd);
+
+            var itemSeller=this.state.sellers.slice(itemPageStart,itemPageEnd);
+               
+            var itemSellerPage=itemSeller.map(v =>
+            
+            <SellerRow seller={v} key={v.id} id={v.id} name={v.name} info1={v.info1} info2={v.info2} selectedCategoryId={this.props.selectedCategoryId} 
+            price={parseInt(v.price)} long={v.long} pict={v.pict} category={v.category} cbChoiceSellerId={this.choiceSellerId}
             />
-            );  
+            ); 
+        }    
+        if(this.props.itemId){
+            var item=this.state.sellers.find((i) => i.id==this.props.itemId);
+            console.log(item)  
+            console.log(this.props.itemId);
+        }
                             
         return (
             <div>
                 <h1>{categoryName}</h1>
                 
-                {(this.state.sellersViewMode==0) &&
+                {(this.props.pageNum) &&
                 <div>
                     <ul className="PagesCount">стр. {  pagesCount  }</ul>
                     
@@ -78,7 +81,8 @@ class CategoryView extends React.Component {
                     </table>
                 
                 </div>} 
-                {(this.state.sellersViewMode==1) && <SellerCard className="SellerCard" item={this.state.sellers.id}/>}
+                {(this.props.itemId) && <SellerCard item={item} key={item.id} id={item.id} name={item.name} info1={item.info1} info2={item.info2}
+                price={parseInt(item.price)} long={item.long} pict={item.pict}/>}
                   
             </div>
             
@@ -89,8 +93,3 @@ class CategoryView extends React.Component {
 }
 
 export default CategoryView;
-//<Switch>  
-//<Route path="/" exact component={StartView}/> 
-//<Route path="/Category-:selectedCategoryId" exact component={CategoryPage} render={ props => <div>zzz</div> }/>
-
-//</Switch>  onClick={this.selectPages}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import './OrderButton.css';
 
@@ -18,7 +19,7 @@ class OrderButton extends React.PureComponent {
         
         return (
             <div className="orderButton">
-            <button onClick={this.selectedBasket}><b>Moй выбор</b> <br/>выбрано:  {this.state.selectedPosition} </button>
+            <button onClick={this.selectedBasket}><b>Moй выбор</b> <br/>выбрано:  {this.props.order.length} </button>
               </div> 
             
             
@@ -27,5 +28,14 @@ class OrderButton extends React.PureComponent {
 }
 
 }
+const mapStateToProps = function (state) {
+  return {
+    // весь раздел Redux state под именем order будет доступен
+    // данному компоненту как this.props.order
+    order: state.order,
+  };
+};
 
-export default OrderButton;
+export default connect(mapStateToProps)(OrderButton);
+
+//export default OrderButton;
