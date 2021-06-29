@@ -1,0 +1,40 @@
+.orderPict img{
+    width: 140px;
+    margin-left: 20px;
+    max-height: 180px;
+    
+}
+h3{
+    font-style: italic;
+}
+.ItemName{
+    padding-left: 20px;
+    width: 400px;
+}
+.Price{
+    padding-left: 20px;
+    font-size: larger;
+    width: 100px;
+}
+.ItemOrderButton button{
+    width: 120px;
+    height: 40px;
+    font-style: italic;
+    font-size: 15px;
+    background-color: rgb(180, 169, 243);
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.orderItemName{
+    width: 500px;
+}
+.orderPrice{
+    font-size: 20px;
+}
+.ItemRow-Active{
+    transition-duration: 3s;
+    transition-property: opacity;
+    opacity: 0;
+}

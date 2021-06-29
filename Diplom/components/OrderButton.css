@@ -1,4 +1,5 @@
 .orderButton button{
+    color:blue;
     height: 90px;
     width: 110px;
     border-radius: 5px;
@@ -6,8 +7,21 @@
     margin-top: 10px;
     margin-right: 20px;
     font-style: italic;
-    font-size: 15px;
+    font-size: 15px;    
+    animation: MyAnimation 10s 10;
 }
-.orderButton button:hover{
-    cursor: pointer;
+
+@keyframes MyAnimation
+{
+    from { color:blue }
+    50% { color:  red }
+    to { color:blue;;}
+}
+@media screen and (max-width: 1050px){
+    .orderButton button{
+        height: 50px;
+        width: 80px;
+        font-size: 10px; 
+        margin-top: 2px;
+    }
 }

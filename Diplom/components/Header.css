@@ -16,3 +16,28 @@
     color: deeppink;
     font-weight: 200;
 }
+@media screen and (max-width: 1050px){
+    .HeaderText{
+        font-size: 30px;
+        font-family: 'Marck Script', cursive;
+        padding-left: 30px;
+        color: deeppink;
+        font-weight: 200;
+    }
+
+}
+@media screen and (max-width: 700px){
+    .HeaderText{
+        font-size: 20px;
+        font-family: 'Marck Script', cursive;
+        padding-left: 20px;
+        color: deeppink;
+        font-weight: 200;
+    }
+    .HeaderName{
+        font-size: 25px;
+        font-family: 'Niconne', cursive;
+        color: rgb(18, 18, 189);   
+        padding-left: 30px;
+    }
+}

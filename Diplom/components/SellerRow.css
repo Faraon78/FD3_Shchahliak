@@ -7,11 +7,11 @@
 h3{
     font-style: italic;
 }
-.ItemName{
+.ItemName td{
     padding-left: 20px;
     width: 400px;
 }
-.Long, .Price{
+.Long, .ItemPrice{
     padding-left: 20px;
     font-size: larger;
     width: 100px;
@@ -32,3 +32,64 @@ button:hover{
 .Pict{
     max-height: 140px;
 }
+@media screen and (max-width: 1400px){
+    .ItemName td{
+        padding-left: 20px;
+        width: 200px;
+    }
+    .Long, .ItemPrice{
+        padding-left: 5px;
+        font-size: normal;
+        width: 80px;
+    }
+}
+@media screen and (max-width: 1200px){
+    .Pict img{
+        width: 130px;
+        margin-left: 5px;
+        max-height: 130px;
+        
+    }
+    .ItemName td{
+        padding-left: 5px;
+        width: 150px;
+    }
+}
+@media screen and (max-width:1000px){
+    .Pict img{
+        width: 90px;
+        margin-left: 5px;
+        max-height: 90px;
+        
+    }
+    .ItemName td{
+        padding-left: 5px;
+        width: 90px;
+        font-size: smaller;
+    }
+    h3{
+        font-size: smaller;
+    }
+    .Long, .ItemPrice{
+        padding-left: 5px;
+        font-size: 10px;
+        width: 50px;
+    }
+    .ItemPrice td{
+        padding-left: 5px;
+        font-size: 10px;
+        width: 50px;
+        
+    }
+    .ItemOrderButton button{
+        width: 70px;
+        height: 30px;
+        font-style: italic;
+        font-size: 8px;
+        background-color: rgb(180, 169, 243);
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+}
+    

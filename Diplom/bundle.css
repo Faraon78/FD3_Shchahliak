@@ -9,7 +9,21 @@ float: left;
 .orderButton {
     float: right;
     
+}
+@media screen and (max-width:1000px){
+    .mainMenuButton button{
+        width: 100px;
+        height: 50px;
+        font-style: italic;
+        font-size: 10px;        
+        border-radius: 5px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        
+    }
+   
 }.orderButton button{
+    color:blue;
     height: 90px;
     width: 110px;
     border-radius: 5px;
@@ -17,10 +31,23 @@ float: left;
     margin-top: 10px;
     margin-right: 20px;
     font-style: italic;
-    font-size: 15px;
+    font-size: 15px;    
+    animation: MyAnimation 10s 10;
 }
-.orderButton button:hover{
-    cursor: pointer;
+
+@keyframes MyAnimation
+{
+    from { color:blue }
+    50% { color:  red }
+    to { color:blue;;}
+}
+@media screen and (max-width: 1050px){
+    .orderButton button{
+        height: 50px;
+        width: 80px;
+        font-size: 10px; 
+        margin-top: 2px;
+    }
 }.HeaderName{
     font-size: 35px;
     font-family: 'Niconne', cursive;
@@ -38,10 +65,35 @@ float: left;
     padding-left: 50px;
     color: deeppink;
     font-weight: 200;
-}.mainMenu button{
+}
+@media screen and (max-width: 1050px){
+    .HeaderText{
+        font-size: 30px;
+        font-family: 'Marck Script', cursive;
+        padding-left: 30px;
+        color: deeppink;
+        font-weight: 200;
+    }
+
+}
+@media screen and (max-width: 700px){
+    .HeaderText{
+        font-size: 20px;
+        font-family: 'Marck Script', cursive;
+        padding-left: 20px;
+        color: deeppink;
+        font-weight: 200;
+    }
+    .HeaderName{
+        font-size: 25px;
+        font-family: 'Niconne', cursive;
+        color: rgb(18, 18, 189);   
+        padding-left: 30px;
+    }
+}.mainMenuButton{
     display: block;
-    width: 170px;
-    height: 100px;
+    width: 150px;
+    height: 80px;
     font-style: italic;
     font-size: 15px;
     background-color: mediumslateblue;
@@ -49,16 +101,34 @@ float: left;
     margin-top: 5px;
     margin-bottom: 10px;
 }
-.mainMenu button:hover{
-    cursor: pointer;
-}
-.Start{
+@media screen and (max-width:1000px){
+    .mainMenuButton button{
+        width: 100px;
+        height: 50px;
+        font-style: italic;
+        font-size: 10px;        
+        border-radius: 5px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        
+    }
+   
+}.Start{
     text-align: center;
     padding-left: 250px;
     padding-right: 100px;
     font-size: 20px;
     padding-top: 40px;
     font-style: italic;
+}
+@media screen and (max-width: 700px){
+    .Start{
+        text-align: center;
+        padding-left: 100px;
+        padding-right: 20px;
+        font-size: 10px;
+        padding-top:10px;
+    }
 }.Pict img{
     width: 180px;
     margin-left: 20px;
@@ -68,11 +138,11 @@ float: left;
 h3{
     font-style: italic;
 }
-.ItemName{
+.ItemName td{
     padding-left: 20px;
     width: 400px;
 }
-.Long, .Price{
+.Long, .ItemPrice{
     padding-left: 20px;
     font-size: larger;
     width: 100px;
@@ -93,7 +163,67 @@ button:hover{
 .Pict{
     max-height: 140px;
 }
-.sellerCard{
+@media screen and (max-width: 1400px){
+    .ItemName td{
+        padding-left: 20px;
+        width: 200px;
+    }
+    .Long, .ItemPrice{
+        padding-left: 5px;
+        font-size: normal;
+        width: 80px;
+    }
+}
+@media screen and (max-width: 1200px){
+    .Pict img{
+        width: 130px;
+        margin-left: 5px;
+        max-height: 130px;
+        
+    }
+    .ItemName td{
+        padding-left: 5px;
+        width: 150px;
+    }
+}
+@media screen and (max-width:1000px){
+    .Pict img{
+        width: 90px;
+        margin-left: 5px;
+        max-height: 90px;
+        
+    }
+    .ItemName td{
+        padding-left: 5px;
+        width: 90px;
+        font-size: smaller;
+    }
+    h3{
+        font-size: smaller;
+    }
+    .Long, .ItemPrice{
+        padding-left: 5px;
+        font-size: 10px;
+        width: 50px;
+    }
+    .ItemPrice td{
+        padding-left: 5px;
+        font-size: 10px;
+        width: 50px;
+        
+    }
+    .ItemOrderButton button{
+        width: 70px;
+        height: 30px;
+        font-style: italic;
+        font-size: 8px;
+        background-color: rgb(180, 169, 243);
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+}
+    .sellerCard{
     width: 700px;
     text-align: center;
     padding-left: 40px;
@@ -128,6 +258,34 @@ button:hover{
 div .cardButton {
     display: inline-block;
 }
+@media screen and (max-width:1450px){
+    .sellerCard{
+        width: 400px;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+        padding-top: 20px;
+        font-style: italic;
+        display: inline-block;
+        vertical-align: top;
+      
+    }
+    .sellerCardImg img{
+        max-width: 300px;
+        padding-top: 20px;
+    }
+    .cardButton button{
+        width: 90px;
+        height: 40px;
+        font-style: italic;
+        font-size: 10px;
+        background-color: rgb(180, 169, 243);
+        border-radius: 5px;    
+        margin-left: 10px;
+    }
+}
+
 h1{
     text-align: center;
     display: inline-block;
@@ -152,4 +310,92 @@ li{
     margin-right: 5px;
     border-radius: 3px;
 }
+.orderPict img{
+    width: 140px;
+    margin-left: 20px;
+    max-height: 180px;
+    
+}
+h3{
+    font-style: italic;
+}
+.ItemName{
+    padding-left: 20px;
+    width: 400px;
+}
+.Price{
+    padding-left: 20px;
+    font-size: larger;
+    width: 100px;
+}
+.ItemOrderButton button{
+    width: 120px;
+    height: 40px;
+    font-style: italic;
+    font-size: 15px;
+    background-color: rgb(180, 169, 243);
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.orderItemName{
+    width: 500px;
+}
+.orderPrice{
+    font-size: 20px;
+}
+.ItemRow-Active{
+    transition-duration: 3s;
+    transition-property: opacity;
+    opacity: 0;
+}
+.OrderView{
+    width: 1200px;
+    text-align: center;
+    margin-left: 170px;
+}
+.OrderView h1{
+color: blue;
+}
+.OrderView input{
+    font-size: large;
+}
+tfoot{
+    font-weight: bold;
+    font-size: 22px;
+}
+tbody{
+    border-bottom: solid 2px;
+    border-collapse: collapse;
+}
+textarea{
+    width: 600px;
+    height: 100px;
+}
+.comment, .tel{
+    text-align: left;
+    margin-left: 30px;
+}
+.comment span, .tel span{
+    font-size: larger;
+    font-style: italic;
+    display: inline-block;
+}
+.submit input{
+        height: 40px;
+        width: 200px;
+        border-radius: 5px;
+        background-color: rgb(131, 243, 243);
+        margin-top: 10px;
+        margin-right: 20px;
+        font-style: italic;
+        font-size: 15px;
+    
+}
+.Error{
+    color: red;
+    font-style: italic;
+}
+
 /*# sourceMappingURL=bundle.css.map*/

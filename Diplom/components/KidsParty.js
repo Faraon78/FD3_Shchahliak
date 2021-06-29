@@ -17,6 +17,8 @@ import StartView from './StartView';
 import CategoryRoot from './CategoryRoot';
 import CategoryView from './CategoryView';
 import SellerCard from './SellerCard';
+import OrderView from './OrderView';
+import EndView from './EndView';
 
 const category= require('../Catalog/category.json');
 let store=createStore(combinedReducer);
@@ -40,9 +42,7 @@ class KidsParty extends React.Component {
     else
     this.setState({selectedCategoryId:itemId, selectedCategoryName: itemName})    
   }
-  selectBasket = () => {
-    this.setState({selectedCategoryId:null})
-  } 
+  
 
   render() {
     
@@ -59,7 +59,7 @@ class KidsParty extends React.Component {
       <div className='KidsParty'> 
              
       <div> 
-      <OrderButton className='divButton' cbSelectedBasket={this.selectBasket}/>
+      <OrderButton className='divButton' />
         <Header className='Header'/>
         
       </div> 
@@ -69,6 +69,8 @@ class KidsParty extends React.Component {
         <Route path="/" exact component={StartView}/> 
         <Route path="/Category-:selectedCategoryId-page:pageNum" exact component={CategoryRoot} />
         <Route path="/Category-:selectedCategoryId-item:itemId"  component={CategoryRoot}/>
+        <Route path="/Order" component={OrderView} />
+        <Route path="/EndView" component={EndView} />
       </Switch>          
           
        
@@ -84,4 +86,3 @@ class KidsParty extends React.Component {
 
 export default KidsParty;
 
-//<Route path="/Order" component={OrderView} />

@@ -1,7 +1,7 @@
-.mainMenu button{
+.mainMenuButton{
     display: block;
-    width: 170px;
-    height: 100px;
+    width: 150px;
+    height: 80px;
     font-style: italic;
     font-size: 15px;
     background-color: mediumslateblue;
@@ -9,6 +9,16 @@
     margin-top: 5px;
     margin-bottom: 10px;
 }
-.mainMenu button:hover{
-    cursor: pointer;
+@media screen and (max-width:1000px){
+    .mainMenuButton button{
+        width: 100px;
+        height: 50px;
+        font-style: italic;
+        font-size: 10px;        
+        border-radius: 5px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        
+    }
+   
 }

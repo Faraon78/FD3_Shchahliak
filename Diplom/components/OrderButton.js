@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import './OrderButton.css';
 
-class OrderButton extends React.PureComponent {
+class OrderButton extends React.Component {
     state = {
         selectedPosition:0,
     }
 
     selectedBasket = () => {
-        this.props.cbSelectedBasket();
+        
         console.log('запускаем корзину')
+
       }
 
     render() {    
-            
+      //console.log(this.props.order.order, this.props.order.order.length);   
         
         return (
             <div className="orderButton">
-            <button onClick={this.selectedBasket}><b>Moй выбор</b> <br/>выбрано:  {this.props.order.length} </button>
+            <NavLink to="/Order"  className="PageLink" ><button onClick={this.selectedBasket}><b>Ваш выбор</b> <br/>выбрано:  {this.props.order.order.length} </button></NavLink>
               </div> 
             
             

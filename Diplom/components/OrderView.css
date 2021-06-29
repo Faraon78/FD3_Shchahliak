@@ -1,0 +1,47 @@
+.OrderView{
+    width: 1200px;
+    text-align: center;
+    margin-left: 170px;
+}
+.OrderView h1{
+color: blue;
+}
+.OrderView input{
+    font-size: large;
+}
+tfoot{
+    font-weight: bold;
+    font-size: 22px;
+}
+tbody{
+    border-bottom: solid 2px;
+    border-collapse: collapse;
+}
+textarea{
+    width: 600px;
+    height: 100px;
+}
+.comment, .tel{
+    text-align: left;
+    margin-left: 30px;
+}
+.comment span, .tel span{
+    font-size: larger;
+    font-style: italic;
+    display: inline-block;
+}
+.submit input{
+        height: 40px;
+        width: 200px;
+        border-radius: 5px;
+        background-color: rgb(131, 243, 243);
+        margin-top: 10px;
+        margin-right: 20px;
+        font-style: italic;
+        font-size: 15px;
+    
+}
+.Error{
+    color: red;
+    font-style: italic;
+}

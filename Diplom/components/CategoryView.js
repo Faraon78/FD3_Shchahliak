@@ -27,9 +27,9 @@ class CategoryView extends React.Component {
     }
 
     render() {
-        console.log("Запустили рендер CategoryView");
+        //console.log("Запустили рендер CategoryView");
         
-        console.log(this.props.itemId, this.props.pageNum);
+        //console.log(this.props.itemId, this.props.pageNum);
         var categoryName=category[this.props.selectedCategoryId].name;
 
         if(this.props.pageNum){
@@ -51,7 +51,7 @@ class CategoryView extends React.Component {
             var itemPageStart=(this.props.pageNum-1)*10;
             var itemPageEnd=(this.props.pageNum*10);
 
-            console.log(itemPageStart, itemPageEnd);
+           // console.log(itemPageStart, itemPageEnd);
 
             var itemSeller=this.state.sellers.slice(itemPageStart,itemPageEnd);
                
@@ -60,12 +60,12 @@ class CategoryView extends React.Component {
             <SellerRow seller={v} key={v.id} id={v.id} name={v.name} info1={v.info1} info2={v.info2} selectedCategoryId={this.props.selectedCategoryId} 
             price={parseInt(v.price)} long={v.long} pict={v.pict} category={v.category} cbChoiceSellerId={this.choiceSellerId}
             />
-            ); 
+            ) 
         }    
         if(this.props.itemId){
             var item=this.state.sellers.find((i) => i.id==this.props.itemId);
-            console.log(item)  
-            console.log(this.props.itemId);
+            //console.log(item)  
+            //console.log(this.props.itemId);
         }
                             
         return (
@@ -82,7 +82,7 @@ class CategoryView extends React.Component {
                 
                 </div>} 
                 {(this.props.itemId) && <SellerCard item={item} key={item.id} id={item.id} name={item.name} info1={item.info1} info2={item.info2}
-                price={parseInt(item.price)} long={item.long} pict={item.pict}/>}
+                price={parseInt(item.price)} long={item.long} pict={item.pict} adrs={item.adrs} url={item.url}/>}
                   
             </div>
             

@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { itemOrder_add, itemOrder_delete } from '../redux/itemsAC';
+//import combinedReducer from '../redux/reducers.js';
 
 import './SellerCard.css';
 
-//const history = useHistory();
+
 class SellerCard extends React.Component {
     static propTypes = {
         id: PropTypes.number.isRequired, // передано из родительского компонента
@@ -18,7 +19,11 @@ class SellerCard extends React.Component {
         //order:PropTypes.arrayOf(React.PropTypes.object)
          // передано из Redux
       };
-        
+
+      goHome =()=>{        
+        history.go(-1);
+      }
+      
       addToOrder =() =>{
         
         this.props.dispatch( itemOrder_add(this.props.id, this.props.name, this.props.price, this.props.pict) );
@@ -28,9 +33,8 @@ class SellerCard extends React.Component {
     }
     render() {
         
-    console.log(this.props.order, this.props.order.length);
-    //console.log(history);
-                   
+    console.log(this.props.order.order, this.props.order.order.length);
+                  
         return (
             <div>
                 <div className="sellerCard">
@@ -44,11 +48,12 @@ class SellerCard extends React.Component {
                     <div className= "cardPrice">Стоимость <strong> от {this.props.price} руб.</strong></div>
                     <br/>
                     {(this.props.adrs) && <div className= "cardAdrs">Местонахождения: {this.props.adrs} </div>} 
-                    {(this.props.url) && <div className= "cardUrl">Сайт: <a href={this.props.url} target_blank>{this.props.url}</a> </div>}
+                    {(this.props.url) && <div className= "cardUrl">Сайт: <a href={this.props.url} target="blank">{this.props.url}</a> </div>}
                     <br/>
                     <div className="cardButton">
-                        <button onClick={this.addToOrder}>Добавить в заказ</button>
-                        <NavLink to={`/Order`}><button onClick={this.goOrder}>Оформить заказ</button></NavLink>
+                        <button onClick={this.goHome} className="cardButton"> Вернуться назад </button>
+                        <button onClick={this.addToOrder} className="cardButton">Добавить в заказ</button>
+                        <NavLink to={`/Order`}><button className="cardButton">Оформить заказ</button></NavLink>
                     </div>
                 </div>
                 <div className ="sellerCardImg"><img src={this.props.pict}/></div>
@@ -63,8 +68,9 @@ const mapStateToProps = function (state) {
       // весь раздел Redux state под именем order будет доступен
       // данному компоненту как this.props.order
       order: state.order,
-    };
-  };
+    }
+  }
   
   export default connect(mapStateToProps)(SellerCard);
 //export default SellerCard;
+//<div className ="sellerCardImg"><img src={this.props.pict}/></div>

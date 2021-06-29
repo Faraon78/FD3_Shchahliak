@@ -4,7 +4,7 @@ import isoFetch from 'isomorphic-fetch';
 let withDataLoad = (categoryId, propName) => Component => {
 
     class ComponentWithDataLoad extends React.Component {
-      componentWillUpdate(){
+      componentDidUpdate(){
         this.updateProps(); 
       }
         
@@ -34,19 +34,23 @@ let withDataLoad = (categoryId, propName) => Component => {
          );
         };
         updateProps =() =>{
-          console.log("Запустили updateProps");
+         // console.log("Запустили updateProps");
           if(this.state.selectedCategoryId != this.props.selectedCategoryId ){
             this.setState({
               dataReady:false,
               combinedProps:null,
               selectedCategoryId:this.props.selectedCategoryId  
-            });
+            }, 
+            this.loadData()
+            );
+            
+            
           }
         }
 
 
         loadData = () => {           //Функция загрузки данных
-          console.log("запустили функцию loadData");
+          //console.log("запустили функцию loadData");
           
           let sp = new URLSearchParams();
           sp.append("f", "READ", ); 
@@ -93,8 +97,8 @@ let withDataLoad = (categoryId, propName) => Component => {
         };
       
         render() {
-          console.log("Запустился рендер withDataLoad");
-          console.log(this.state.selectedCategoryId,this.props.selectedCategoryId );
+          //console.log("Запустился рендер withDataLoad");
+          //console.log(this.state.selectedCategoryId,this.props.selectedCategoryId );
           
          
           if ( !this.state.dataReady )

@@ -12,8 +12,8 @@ import { withDataLoad } from './withDataLoad';
   CategoryViewWithData=withDataLoad(this.props.match.params.selectedCategoryId, "sellers")(CategoryView);
   
   render() {
-    console.log("Запустили рендер CategoryRoot");
-    console.log("this.props.match.params.pageNum= "+this.props.match.params.pageNum, "this.props.match.params.itemId=" +this.props.match.params.itemId);
+    //console.log("Запустили рендер CategoryRoot");
+    //console.log("this.props.match.params.pageNum= "+this.props.match.params.pageNum, "this.props.match.params.itemId=" +this.props.match.params.itemId);
     
     let categoryId=parseInt(this.props.match.params.selectedCategoryId);
     
@@ -25,7 +25,7 @@ import { withDataLoad } from './withDataLoad';
     if (!itemId){
       itemId=null
     }
-    console.log("pageNum= " +pageNum, " itemId= " + itemId);
+    //console.log("pageNum= " +pageNum, " itemId= " + itemId);
     let CategoryViewWithData=this.CategoryViewWithData;
    
     return (
