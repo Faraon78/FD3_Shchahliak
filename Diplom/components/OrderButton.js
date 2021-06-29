@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import './OrderButton.css';
 
-class OrderButton extends React.Component {
+class OrderButton extends React.PureComponent {
     state = {
         selectedPosition:0,
     }

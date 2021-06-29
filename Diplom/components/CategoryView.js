@@ -8,7 +8,7 @@ import SellerCard from './SellerCard';
 
 import './CategoryView.css';
 const category= require('../Catalog/category.json');
-class CategoryView extends React.Component {
+class CategoryView extends React.PureComponent {
     static propTypes = {
         sellers: PropTypes.array,
         selectedPagesNum:PropTypes.number
