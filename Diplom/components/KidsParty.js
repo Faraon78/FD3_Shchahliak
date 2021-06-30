@@ -84,5 +84,5 @@ class KidsParty extends React.Component {
 
 }
 
-export default KidsParty;
+export default KidsParty
 

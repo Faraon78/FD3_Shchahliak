@@ -16,7 +16,7 @@ h3{
     font-size: larger;
     width: 100px;
 }
-.ItemOrderButton button{
+.ItemOrderButton{
     width: 120px;
     height: 40px;
     font-style: italic;
@@ -26,9 +26,7 @@ h3{
     margin-top: 5px;
     margin-left: 20px;
 }
-button:hover{
-    cursor: pointer;
-}
+
 .Pict{
     max-height: 140px;
 }
@@ -62,10 +60,10 @@ button:hover{
         max-height: 90px;
         
     }
-    .ItemName td{
+    .ItemName {
         padding-left: 5px;
         width: 90px;
-        font-size: smaller;
+        font-size: 10px;
     }
     h3{
         font-size: smaller;
@@ -81,7 +79,7 @@ button:hover{
         width: 50px;
         
     }
-    .ItemOrderButton button{
+    .ItemOrderButton{
         width: 70px;
         height: 30px;
         font-style: italic;
@@ -92,4 +90,11 @@ button:hover{
         margin-left: 20px;
     }
 }
-    
+@media screen and (max-width:600px){
+    .Pict img{
+        width: 70px;
+        margin-left: 5px;
+        max-height: 70px;
+        
+    }
+}

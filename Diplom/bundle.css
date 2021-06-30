@@ -32,7 +32,8 @@ float: left;
     margin-right: 20px;
     font-style: italic;
     font-size: 15px;    
-    animation: MyAnimation 10s 10;
+    animation: MyAnimation 10s 50;
+    cursor: pointer;
 }
 
 @keyframes MyAnimation
@@ -100,16 +101,29 @@ float: left;
     border-radius: 25px;
     margin-top: 5px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 @media screen and (max-width:1000px){
-    .mainMenuButton button{
+    .mainMenuButton{
         width: 100px;
         height: 50px;
         font-style: italic;
         font-size: 10px;        
-        border-radius: 5px;
-        margin-top: 2px;
-        margin-bottom: 2px;
+        border-radius: 10px;
+        margin-top: 4px;
+        margin-bottom: 4px;        
+    }   
+}
+@media screen and (max-width:700px){
+    .mainMenuButton{
+        width: 78px;
+        height: 50px;
+        font-style: italic;
+        font-size: 8px;        
+        border-radius: 10px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        padding-left: 0px;
         
     }
    
@@ -147,7 +161,7 @@ h3{
     font-size: larger;
     width: 100px;
 }
-.ItemOrderButton button{
+.ItemOrderButton{
     width: 120px;
     height: 40px;
     font-style: italic;
@@ -157,9 +171,7 @@ h3{
     margin-top: 5px;
     margin-left: 20px;
 }
-button:hover{
-    cursor: pointer;
-}
+
 .Pict{
     max-height: 140px;
 }
@@ -193,10 +205,10 @@ button:hover{
         max-height: 90px;
         
     }
-    .ItemName td{
+    .ItemName {
         padding-left: 5px;
         width: 90px;
-        font-size: smaller;
+        font-size: 10px;
     }
     h3{
         font-size: smaller;
@@ -212,7 +224,7 @@ button:hover{
         width: 50px;
         
     }
-    .ItemOrderButton button{
+    .ItemOrderButton{
         width: 70px;
         height: 30px;
         font-style: italic;
@@ -223,7 +235,14 @@ button:hover{
         margin-left: 20px;
     }
 }
-    .sellerCard{
+@media screen and (max-width:600px){
+    .Pict img{
+        width: 70px;
+        margin-left: 5px;
+        max-height: 70px;
+        
+    }
+}.sellerCard{
     width: 700px;
     text-align: center;
     padding-left: 40px;
@@ -258,18 +277,13 @@ button:hover{
 div .cardButton {
     display: inline-block;
 }
-@media screen and (max-width:1450px){
+@media screen and (max-width:1500px){
     .sellerCard{
         width: 400px;
-        text-align: center;
         padding-left: 20px;
         padding-right: 20px;
         font-size: 15px;
         padding-top: 20px;
-        font-style: italic;
-        display: inline-block;
-        vertical-align: top;
-      
     }
     .sellerCardImg img{
         max-width: 300px;
@@ -285,7 +299,25 @@ div .cardButton {
         margin-left: 10px;
     }
 }
-
+@media screen and (max-width:1000px){
+    .sellerCardImg{
+        display: block;
+        text-align: center;        
+    }
+    .sellerCard{
+        display: block;
+        width: auto;
+        text-align: center;  
+    }
+    .cover{
+        display: inline-block;  
+    }
+}
+@media screen and (max-width:700px){
+    h2{
+        font-size: 15px;
+    }
+}
 h1{
     text-align: center;
     display: inline-block;
@@ -310,7 +342,43 @@ li{
     margin-right: 5px;
     border-radius: 3px;
 }
-.orderPict img{
+@media screen and (max-width:900px){
+    h1{
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: -10px;
+        letter-spacing: 2px;
+        font-size: 20px;
+    }
+    li{
+        
+        height: 15px;
+        width: 15px;
+        background-color: rgb(230, 218, 218);
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 3px;
+        font-size: 10px;
+    }
+    .PagesCount{
+        padding-left: 150px;
+        font-size: normal;
+    }
+}
+@media screen and (max-width:600px){
+    h1{
+        margin-left: 2px;
+        margin-top: 10px;
+        margin-bottom: -10px;
+        letter-spacing: 1px;
+        font-size: 15px;
+    }
+    .PagesCount{
+        padding-left: 100px;
+        font-size: smaller;
+    }
+    
+}.orderPict img{
     width: 140px;
     margin-left: 20px;
     max-height: 180px;
@@ -319,7 +387,7 @@ li{
 h3{
     font-style: italic;
 }
-.ItemName{
+.orderItemName{
     padding-left: 20px;
     width: 400px;
 }
@@ -339,9 +407,6 @@ h3{
     margin-left: 20px;
 }
 
-.orderItemName{
-    width: 500px;
-}
 .orderPrice{
     font-size: 20px;
 }
@@ -350,8 +415,29 @@ h3{
     transition-property: opacity;
     opacity: 0;
 }
-.OrderView{
-    width: 1200px;
+@media screen and (max-width: 1200px){
+    .orderItemName{
+        width: 300px;
+    }
+    .orderPrice{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 900px){
+    .orderPict img{
+        width: 100px;
+        margin-left: 20px;
+        max-height: 120px;
+}
+}
+@media screen and (max-width: 700px){
+    .orderPict img{
+        width: 80px;
+        margin-left: 5px;
+        max-height: 100px;
+}
+}.OrderView{
+    width: auto;
     text-align: center;
     margin-left: 170px;
 }
@@ -396,6 +482,37 @@ textarea{
 .Error{
     color: red;
     font-style: italic;
+}
+@media screen and (max-width: 1200px){
+    .OrderView{
+        margin-left: 20px;
+    }
+    .comment, .tel{
+        margin-left: 50px;
+    }
+
+}
+@media screen and (max-width: 1000px){
+    textarea{
+        width: 350px;
+        height: 100px;
+    }
+    .comment span, .tel span{
+        font-size:medium ;
+    }
+}
+@media screen and (max-width: 700px){
+    textarea{
+        width: 250px;
+        height: 100px;
+    }
+    .comment span, .tel span{
+        font-size:smaller;
+    }
+    tfoot{
+        font-weight: bold;
+        font-size: 15px;
+    }
 }
 
 /*# sourceMappingURL=bundle.css.map*/

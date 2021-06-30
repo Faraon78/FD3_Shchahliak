@@ -35,5 +35,4 @@ class MenuButton extends React.PureComponent {
 
 }
 
-export default MenuButton;
-//activeClassName="ActivePageLink"
+export default MenuButton

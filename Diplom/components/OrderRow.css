@@ -7,7 +7,7 @@
 h3{
     font-style: italic;
 }
-.ItemName{
+.orderItemName{
     padding-left: 20px;
     width: 400px;
 }
@@ -27,9 +27,6 @@ h3{
     margin-left: 20px;
 }
 
-.orderItemName{
-    width: 500px;
-}
 .orderPrice{
     font-size: 20px;
 }
@@ -37,4 +34,26 @@ h3{
     transition-duration: 3s;
     transition-property: opacity;
     opacity: 0;
+}
+@media screen and (max-width: 1200px){
+    .orderItemName{
+        width: 300px;
+    }
+    .orderPrice{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 900px){
+    .orderPict img{
+        width: 100px;
+        margin-left: 20px;
+        max-height: 120px;
+}
+}
+@media screen and (max-width: 700px){
+    .orderPict img{
+        width: 80px;
+        margin-left: 5px;
+        max-height: 100px;
+}
 }

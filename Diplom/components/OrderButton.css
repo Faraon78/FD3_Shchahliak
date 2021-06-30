@@ -9,6 +9,7 @@
     font-style: italic;
     font-size: 15px;    
     animation: MyAnimation 10s 50;
+    cursor: pointer;
 }
 
 @keyframes MyAnimation

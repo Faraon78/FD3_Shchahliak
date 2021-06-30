@@ -22,8 +22,7 @@ class OrderRow extends React.PureComponent {
     } 
 
     render() {
-     // console.log("Запустили рендер SellerRow");
-        return (
+      return (
             <tr key={this.props.id} id={this.props.id} 
             className={ this.state.className}
             
@@ -32,8 +31,8 @@ class OrderRow extends React.PureComponent {
               <td className ='orderPict'> <img src={this.props.pict}/> </td>
               <td className ='orderItemName'><h3> {this.props.name}</h3></td>
               <td className='orderPrice'>{this.props.price} руб.</td>
-              <td className = 'ItemOrderButton'>
-                <button id={this.props.id} onClick={this.deleteClicked}>Удалить</button>                 
+              <td >
+                <button className = 'ItemOrderButton' id={this.props.id} onClick={this.deleteClicked}>Удалить</button>                 
               </td>
             </tr>     
           )

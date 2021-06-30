@@ -56,7 +56,7 @@ class SellerCard extends React.Component {
                         <NavLink to={`/Order`}><button className="cardButton">Оформить заказ</button></NavLink>
                     </div>
                 </div>
-                <div className ="sellerCardImg"><img src={this.props.pict}/></div>
+                <div className ="sellerCardImg"><div className="cover"><img src={this.props.pict}/></div></div>
             </div> 
         )
 

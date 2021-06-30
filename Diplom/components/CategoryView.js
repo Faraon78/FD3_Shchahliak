@@ -5,6 +5,7 @@ import { Switch } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import SellerRow from './SellerRow';
 import SellerCard from './SellerCard';
+import {connect} from 'react-redux';
 
 import './CategoryView.css';
 const category= require('../Catalog/category.json');
@@ -27,9 +28,7 @@ class CategoryView extends React.PureComponent {
     }
 
     render() {
-        //console.log("Запустили рендер CategoryView");
         
-        //console.log(this.props.itemId, this.props.pageNum);
         var categoryName=category[this.props.selectedCategoryId].name;
 
         if(this.props.pageNum){
@@ -59,6 +58,7 @@ class CategoryView extends React.PureComponent {
             
             <SellerRow seller={v} key={v.id} id={v.id} name={v.name} info1={v.info1} info2={v.info2} selectedCategoryId={this.props.selectedCategoryId} 
             price={parseInt(v.price)} long={v.long} pict={v.pict} category={v.category} cbChoiceSellerId={this.choiceSellerId}
+            bgColor={(this.props.order.order.find(item => item.itemId == v.id))&& ("#7FFFD4")}
             />
             ) 
         }    
@@ -91,5 +91,13 @@ class CategoryView extends React.PureComponent {
 }
 
 }
-
-export default CategoryView;
+const mapStateToProps = function (state) {
+    return {
+      // весь раздел Redux state под именем order будет доступен
+      // данному компоненту как this.props.order
+      order: state.order,
+    }
+  }
+  
+  export default connect(mapStateToProps)(CategoryView);
+//export default CategoryView;
